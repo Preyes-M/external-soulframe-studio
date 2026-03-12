@@ -134,7 +134,7 @@ export default function Homepage() {
         <section className="max-w-8xl mx-auto px-6 py-16 md:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left Content */}
-            <div className="lg:col-span-7 space-y-8 reveal">
+            <div className="lg:col-span-7 space-y-8">
               <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium">
                 <Icon name="MapPinIcon" size={16} />
                 <span>Banaswadi, Bangalore Studio</span>
@@ -204,7 +204,7 @@ export default function Homepage() {
             </div>
 
             {/* Right Visual Card */}
-            <div className="lg:col-span-5 reveal delay-200">
+            <div className="lg:col-span-5 delay-200">
               <div className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl">
                 <Image
                   src="/images/studio/soul_frame_studio_cyclorama_with_lights.webp"
@@ -329,13 +329,13 @@ export default function Homepage() {
         </Reveal>
         <Reveal>
           {/* Stats Counter */}
-          <section className="max-w-8xl mx-auto px-6 py-16 md:py-24 reveal">
+          <section className="max-w-8xl mx-auto px-6 py-16 md:py-24">
             <StatsCounter />
           </section>
         </Reveal>
         <Reveal>
           {/* Why Choose Us */}
-          <section className="max-w-8xl mx-auto px-6 py-16 md:py-24 reveal">
+          <section className="max-w-8xl mx-auto px-6 py-16 md:py-24">
             <div className="text-center mb-12">
               <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
                 Why Choose Soul Frame Studio
@@ -393,7 +393,7 @@ export default function Homepage() {
         </Reveal>
         <Reveal>
           {/* Testimonials */}
-          <section className="max-w-8xl mx-auto px-6 py-16 md:py-24 reveal">
+          <section className="max-w-8xl mx-auto px-6 py-16 md:py-24">
             <div className="text-center mb-12">
               <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
                 What Our Clients Say
@@ -408,7 +408,7 @@ export default function Homepage() {
         </Reveal>
         {/* Final CTA */}
         <Reveal>
-          <section className="max-w-8xl mx-auto px-6 py-16 md:py-24 reveal">
+          <section className="max-w-8xl mx-auto px-6 py-16 md:py-24">
             <div className="relative rounded-3xl overflow-hidden">
               <AppImage
                 src="https://images.unsplash.com/photo-1603425013520-e0b30e6e37dc"
