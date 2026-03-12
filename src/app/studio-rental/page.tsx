@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   ],
   alternates: {
     canonical:
-      "https://external-soulframe-studio-bangalore.vercel.app/studio-rental",
+      "https://www.soulframestudio.in/studio-rental",
   },
 };
 export default function StudioRental() {

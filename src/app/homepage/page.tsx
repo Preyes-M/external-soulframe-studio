@@ -7,7 +7,6 @@ import PortfolioFilter from './components/PortfolioFilter';
 import BookingWidget from './components/BookingWidget';
 import StatsCounter from './components/StatsCounter';
 import TestimonialsCarousel from './components/TestimonialsCarousel';
-import RevealWrapper from "./components/RevealWrapper";
 import Image from "next/image";
 import Script from "next/script"
 import { createLocalBusinessSchema } from "@/lib/schema";
@@ -26,14 +25,14 @@ export const metadata: Metadata = {
     "ecommerce photography Bangalore",
   ],
   alternates: {
-    canonical: "https://external-soulframe-studio-bangalore.vercel.app",
+    canonical: "https://www.soulframestudio.in",
   },
   openGraph: {
     title:
       "Commercial Photography Studio & Rental in Banaswadi, Bangalore | SoulFrame Studio",
     description:
       "Cyclorama infinity wall studio rental and commercial photography for brands and ecommerce businesses in Bangalore.",
-    url: "https://external-soulframe-studio-bangalore.vercel.app",
+    url: "https://www.soulframestudio.in",
     siteName: "SoulFrame Studio",
     locale: "en_IN",
     type: "website",
@@ -131,6 +130,7 @@ export default function Homepage() {
       <Header />
       <main className="bg-background min-h-screen pt-20">
         {/* Hero Section */}
+        <Reveal>
         <section className="max-w-8xl mx-auto px-6 py-16 md:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left Content */}
@@ -234,7 +234,7 @@ export default function Homepage() {
             </div>
           </div>
         </section>
-
+</Reveal>
         {/* Commercial Capabilities Overview */}
         <Reveal>
           <h2 className="text-4xl font-bold text-center mb-10">
@@ -502,7 +502,6 @@ export default function Homepage() {
         }}
       />
 
-      <RevealWrapper />
     </>);
 
 }

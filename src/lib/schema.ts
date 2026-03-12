@@ -4,7 +4,7 @@ export const createLocalBusinessSchema = () => ({
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   name: "SoulFrame Studio",
-  image: "https://external-soulframe-studio-bangalore.vercel.app/logo.png",
+  image: "https://www.soulframestudio.in/logo.png",
   telephone: "+919731741573",
   priceRange: "₹3,999 - ₹49,999",
   address: {
