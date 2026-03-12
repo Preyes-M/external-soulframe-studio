@@ -19,19 +19,11 @@ export const metadata: Metadata = {
   title: "Cyclorama Studio Rental in Banaswadi, Bangalore | SoulFrame Studio",
   description:
     "Professional cyclorama infinity wall studio rental in Banaswadi, Bangalore. Ideal for product photography, fashion shoots, ecommerce catalog shoots and brand campaigns. Studio rental starts from ₹3,500 per hour.",
-  keywords: [
-    "studio rental bangalore",
-    "cyclorama studio bangalore",
-    "cyclorama studio in kalyan nagar",
-    "cyclorama studio in banaswadi",
-    "cyclorama studio near indiranagar",
-    "photo studio rental bangalore",
-    "photo studio rental near indiranagar",
-    "studio rental banaswadi",
-    "studio rental near indiranagar",
-    "studio rental in north bangalore",
-    "cyclorama infinity wall bangalore",
-  ],
+
+  robots: {
+    index: false,
+    follow: true
+  },
   alternates: {
     canonical:
       "https://www.soulframestudio.in/studio-rental",

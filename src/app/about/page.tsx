@@ -1,10 +1,27 @@
-'use client';
 import { useEffect } from 'react';
 import AppImage from '@/components/ui/AppImage';
 import Icon from '@/components/ui/AppIcon';
 import Header from '@/components/common/Header';
 import Footer from '@/components/common/Footer';
 import Timeline from './components/Timeline';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "About SoulFrame Studio | Commercial Photography Studio Bangalore",
+
+  description:
+    "SoulFrame Studio founded by photographer Rishabh Daga is a commercial photography studio in Banaswadi Bangalore specializing in product photography, fashion shoots and ecommerce catalog photography.",
+
+  alternates: {
+    canonical: "https://www.soulframestudio.in/about"
+  },
+
+  robots: {
+    index: false,
+    follow: true
+  }
+};
+
 
 export default function About() {
   useEffect(() => {
@@ -104,7 +121,7 @@ export default function About() {
               </div>
               <div className="flex items-center gap-4 pt-4">
                 <div className="w-16 h-0.5 bg-primary" />
-                <p className="text-sm font-semibold text-foreground">Rahul Sharma, Founder</p>
+                <p className="text-sm font-semibold text-foreground">Rishabh Daga, Founder</p>
               </div>
             </div>
           </div>

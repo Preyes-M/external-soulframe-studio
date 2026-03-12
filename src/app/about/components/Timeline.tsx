@@ -10,10 +10,10 @@ interface Milestone {
 
 const milestones: Milestone[] = [
   {
-    id: 'mile_2020',
-    year: '2020',
-    title: 'Studio Founded',
-    description: 'Started Soul Frame Studio with a passion for capturing authentic moments',
+    id: 'mile_2017',
+    year: '2017',
+    title: 'Started Food Photography',
+    description: 'Started Food Photography combining passion for photography and stepping into the world of commercials',
   },
   {
     id: 'mile_2021',
