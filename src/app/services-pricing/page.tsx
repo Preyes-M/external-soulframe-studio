@@ -94,7 +94,11 @@ export default function ServicesPricing() {
                   <AppImage
                   src={service.image}
                   alt={service.imageAlt}
-                  className="w-full h-full object-cover grayscale-hover transition-all duration-500" />
+                  className="w-full h-full object-cover grayscale-hover transition-all duration-500" 
+                  width={1200}
+                  height={750}
+                  sizes='(max-width:768px) 100vw, 50vw, 600px'
+                  />
                 
                   <div className="absolute top-4 right-4 bg-primary text-primary-foreground px-4 py-2 rounded-full text-sm font-semibold">
                     Starting at {service.startingPrice}
@@ -112,7 +116,7 @@ export default function ServicesPricing() {
                   )}
                   </ul>
                   <a
-                  href={`https://wa.me/919876543210?text=I'm interested in ${service.title}`}
+                  href={`https://wa.me/919731741573?text=I'm interested in ${service.title}`}
                   className="flex items-center justify-center gap-2 bg-primary text-primary-foreground py-3 rounded-full font-semibold hover:shadow-lg transition-all w-full">
                   
                     <span>Book Now</span>
@@ -163,7 +167,7 @@ export default function ServicesPricing() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="tel:+919876543210"
+                href="tel:+919731741573"
                 className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
                 
                 <Icon name="PhoneIcon" size={20} />

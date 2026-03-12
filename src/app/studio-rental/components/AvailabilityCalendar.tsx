@@ -84,7 +84,7 @@ export default function AvailabilityCalendar() {
             Selected: {selectedDate.toLocaleDateString('en-IN', { dateStyle: 'long' })}
           </p>
           <a
-            href={`https://wa.me/919876543210?text=I'd like to book the studio on ${selectedDate.toLocaleDateString('en-IN')}`}
+            href={`https://wa.me/919731741573?text=I'd like to book the studio on ${selectedDate.toLocaleDateString('en-IN')}`}
             className="inline-flex items-center gap-2 text-primary font-medium text-sm hover:underline"
           >
             <span>Book via WhatsApp</span>

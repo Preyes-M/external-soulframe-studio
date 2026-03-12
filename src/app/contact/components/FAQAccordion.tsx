@@ -12,7 +12,7 @@ const faqs: FAQ[] = [
   {
     id: 'faq_1',
     question: 'How do I book a photography session?',
-    answer: 'You can book by calling us at +91 98765 43210, messaging us on WhatsApp, or filling out the contact form on this page. We recommend booking at least 2 weeks in advance for maternity and kids photography.',
+    answer: 'You can book by calling us at +91 97317 41573, messaging us on WhatsApp, or filling out the contact form on this page. We recommend booking at least 2 weeks in advance for maternity and kids photography.',
   },
   {
     id: 'faq_2',

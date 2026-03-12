@@ -72,7 +72,7 @@ export default function Header() {
 
           {/* CTA Button */}
           <a
-            href="tel:+919876543210"
+            href="tel:+919731741573"
             className="hidden md:flex items-center gap-2 bg-primary text-primary-foreground px-6 py-2.5 rounded-full font-medium text-sm shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5 relative overflow-hidden group"
           >
             <span className="relative z-10">Book Your Slot</span>
@@ -114,7 +114,7 @@ export default function Header() {
                 </Link>
               ))}
               <a
-                href="tel:+919876543210"
+                href="tel:+919731741573"
                 onClick={() => setIsMenuOpen(false)}
                 className="flex items-center justify-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-full font-medium text-base shadow-lg mt-4"
               >

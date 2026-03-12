@@ -159,7 +159,7 @@ export default function PackageComparison() {
           {packages.map((pkg) => (
             <div key={`cta_${pkg.id}`}>
               <a
-                href={`https://wa.me/919876543210?text=I'm interested in the ${pkg.name} package`}
+                href={`https://wa.me/919731741573?text=I'm interested in the ${pkg.name} package`}
                 className={`block w-full text-center py-3 rounded-full font-semibold transition-all ${
                   pkg.popular
                     ? 'bg-primary text-primary-foreground hover:shadow-lg'

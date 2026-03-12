@@ -14,7 +14,7 @@ export default function BookingWidget() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     const message = `Hi, I'd like to book a ${formData.shootType} shoot on ${formData.date}. My name is ${formData.name}, phone: ${formData.phone}`
-    const whatsappUrl = `https://wa.me/919876543210?text=${encodeURIComponent(message)}`
+    const whatsappUrl = `https://wa.me/919731741573?text=${encodeURIComponent(message)}`
     window.open(whatsappUrl, '_blank')
   }
 
@@ -84,7 +84,7 @@ export default function BookingWidget() {
       {/* Mobile Sticky Bottom Bar */}
       <div className="lg:hidden fixed bottom-0 left-0 right-0 glass-panel border-t border-border p-4 z-40 shadow-2xl">
         <a
-          href="https://wa.me/919876543210"
+          href="https://wa.me/919731741573"
           className="flex items-center justify-center gap-2 bg-primary text-primary-foreground py-3 rounded-full font-medium shadow-lg w-full"
         >
           <Icon name="ChatBubbleLeftRightIcon" size={20} />

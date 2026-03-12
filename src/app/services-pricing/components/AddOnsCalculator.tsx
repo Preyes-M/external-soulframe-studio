@@ -70,7 +70,7 @@ export default function AddOnsCalculator() {
             <span className="text-3xl font-bold text-primary">₹{total.toLocaleString('en-IN')}</span>
           </div>
           <a
-            href={`https://wa.me/919876543210?text=I'd like to add these services: ${addOns
+            href={`https://wa.me/919731741573?text=I'd like to add these services: ${addOns
               .filter((a) => selected.includes(a.id))
               .map((a) => a.name)
               .join(', ')}`}

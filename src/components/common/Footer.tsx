@@ -17,16 +17,17 @@ export default function Footer() {
   ]
 
   const services = [
+    { id: 'footer_rentals', label: 'Studio Rental', href: '/studio-rental' },
+    { id: 'footer_product', label: 'Product Photography', href: '/services-pricing#product' },
     { id: 'footer_maternity', label: 'Maternity Shoots', href: '/services-pricing#maternity' },
     { id: 'footer_kids', label: 'Kids Photography', href: '/services-pricing#kids' },
     { id: 'footer_fashion', label: 'Fashion Shoots', href: '/services-pricing#fashion' },
-    { id: 'footer_product', label: 'Product Photography', href: '/services-pricing#product' },
   ]
 
   const socialLinks = [
-    { id: 'social_instagram', icon: 'CameraIcon', href: 'https://instagram.com/soulframestudio', label: 'Instagram' },
+    { id: 'social_instagram', icon: 'CameraIcon', href: 'https://www.instagram.com/soulframestudiobyrd?igsh=Y2ZzdWdrMXZhZ3Ix', label: 'Instagram' },
     { id: 'social_facebook', icon: 'UserGroupIcon', href: 'https://facebook.com/soulframestudio', label: 'Facebook' },
-    { id: 'social_whatsapp', icon: 'ChatBubbleLeftRightIcon', href: 'https://wa.me/919876543210', label: 'WhatsApp' },
+    { id: 'social_whatsapp', icon: 'ChatBubbleLeftRightIcon', href: 'https://wa.me/919731741573', label: 'WhatsApp' },
   ]
 
   return (
@@ -46,7 +47,7 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Capturing Bangalore&apos;s best moments. Premium photography for maternity, kids, fashion, and commercial shoots.
+              Commercial Photography Studio & Rental in Banaswadi, Bangalore | SoulFrame Studio.
             </p>
             <div className="flex items-center gap-3 pt-2">
               {socialLinks.map((social) => (
@@ -105,16 +106,16 @@ export default function Footer() {
               <div className="flex items-start gap-2">
                 <Icon name="MapPinIcon" size={18} className="text-primary mt-0.5 flex-shrink-0" />
                 <p className="text-sm text-muted-foreground">
-                  Indiranagar, Bangalore<br />Karnataka 560038
+                  Banaswadi, Bangalore<br />Karnataka 560043
                 </p>
               </div>
               <div className="flex items-center gap-2">
                 <Icon name="PhoneIcon" size={18} className="text-primary flex-shrink-0" />
                 <a
-                  href="tel:+919876543210"
+                  href="tel:+919731741573"
                   className="text-sm text-muted-foreground hover:text-primary transition-colors"
                 >
-                  +91 98765 43210
+                  +91 97317 41573
                 </a>
               </div>
               <div className="flex items-center gap-2">
@@ -123,7 +124,7 @@ export default function Footer() {
                   href="mailto:hello@soulframestudio.com"
                   className="text-sm text-muted-foreground hover:text-primary transition-colors"
                 >
-                  hello@soulframestudio.com
+                  soulframestudiobyrd@gmail.com
                 </a>
               </div>
             </div>
