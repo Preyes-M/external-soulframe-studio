@@ -12,31 +12,26 @@ import Script from "next/script"
 import { createLocalBusinessSchema } from "@/lib/schema";
 import Reveal from '../../Reveal';
 export const metadata: Metadata = {
-  title:
-    "Commercial Photography Studio & Cyclorama Rental in Banaswadi, Bangalore | SoulFrame Studio",
+  title: "Commercial Photography Studio & Cyclorama Rental in Bangalore",
   description:
-    "SoulFrame Studio is a professional commercial photography studio with 20+ setups and cyclorama infinity wall rental space in Banaswadi, Bangalore. We specialize in product photography, food photography, ecommerce shoots and studio rentals for brands and agencies.",
-  keywords: [
-    "commercial photography studio Bangalore",
-    "cyclorama studio rental Bangalore",
-    "product photography Bangalore",
-    "food photography Bangalore",
-    "studio rental Banaswadi",
-    "ecommerce photography Bangalore",
-  ],
+    "SoulFrame Studio is a commercial photography studio in Banaswadi Bangalore offering cyclorama studio rental, product photography, food photography and ecommerce shoots for brands and agencies.",
+
   alternates: {
-    canonical: "https://www.soulframestudio.in",
+    canonical: "https://www.soulframestudio.in"
   },
+
+  robots: {
+    index: false,
+    follow: true
+  },
+
   openGraph: {
     title:
-      "Commercial Photography Studio & Rental in Banaswadi, Bangalore | SoulFrame Studio",
+      "Commercial Photography Studio & Cyclorama Rental in Bangalore",
     description:
-      "Cyclorama infinity wall studio rental and commercial photography for brands and ecommerce businesses in Bangalore.",
+      "Cyclorama infinity wall studio rental and commercial photography services for brands in Bangalore.",
     url: "https://www.soulframestudio.in",
-    siteName: "SoulFrame Studio",
-    locale: "en_IN",
-    type: "website",
-  },
+  }
 };
 
 export default function Homepage() {
@@ -131,110 +126,110 @@ export default function Homepage() {
       <main className="bg-background min-h-screen pt-20">
         {/* Hero Section */}
         <Reveal>
-        <section className="max-w-8xl mx-auto px-6 py-16 md:py-24">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* Left Content */}
-            <div className="lg:col-span-7 space-y-8">
-              <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium">
-                <Icon name="MapPinIcon" size={16} />
-                <span>Banaswadi, Bangalore Studio</span>
-              </div>
+          <section className="max-w-8xl mx-auto px-6 py-16 md:py-24">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+              {/* Left Content */}
+              <div className="lg:col-span-7 space-y-8">
+                <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium">
+                  <Icon name="MapPinIcon" size={16} />
+                  <span>Banaswadi, Bangalore Studio</span>
+                </div>
 
-              <h1 className="text-5xl md:text-6xl font-bold text-foreground leading-tight">
-                Commercial Photography Studio & Rental Space<br />
-                <span className="text-primary">Banaswadi, Bangalore</span>
-              </h1>
+                <h1 className="text-5xl md:text-6xl font-bold text-foreground leading-tight">
+                  Commercial Photography Studio & Rental Space<br />
+                  <span className="text-primary">Banaswadi, Bangalore</span>
+                </h1>
 
-              <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
-                Cyclorama Infinity Wall Studio Rental | Product Photography | Food Photography | Ecommerce Shoots for Brands in Bangalore
-              </p>
+                <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
+                  Cyclorama Infinity Wall Studio Rental | Product Photography | Food Photography | Ecommerce Shoots for Brands in Bangalore
+                </p>
 
-              <div className="flex flex-col sm:flex-row gap-4">
-                <a
-                  href="tel:+919731741573"
-                  className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 relative overflow-hidden group">
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <a
+                    href="tel:+919731741573"
+                    className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 relative overflow-hidden group">
 
-                  <span className="relative z-10">Request Commercial Quote</span>
-                  <Icon name="PhoneIcon" size={20} className="relative z-10" />
-                  <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:animate-shimmer" />
-                </a>
-                <a
-                  href="https://wa.me/919731741573"
-                  className="inline-flex items-center justify-center gap-2 bg-green-500 text-white px-8 py-4 rounded-full font-semibold"
-                >
-                  WhatsApp Quote
-                </a>
-              </div>
+                    <span className="relative z-10">Request Commercial Quote</span>
+                    <Icon name="PhoneIcon" size={20} className="relative z-10" />
+                    <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:animate-shimmer" />
+                  </a>
+                  <a
+                    href="https://wa.me/919731741573"
+                    className="inline-flex items-center justify-center gap-2 bg-green-500 text-white px-8 py-4 rounded-full font-semibold"
+                  >
+                    WhatsApp Quote
+                  </a>
+                </div>
 
-              {/* Mini Stats */}
-              <div className="flex flex-wrap gap-8 pt-4">
-                <div className="flex items-center gap-3">
-                  <div className="flex -space-x-2">
-                    <div className="w-10 h-10 rounded-full border-2 border-background overflow-hidden">
-                      <AppImage
-                        src="https://img.rocket.new/generatedImages/rocket_gen_img_13fadfdfa-1763295460112.png"
-                        alt="Client testimonial photo of woman smiling"
-                        className="w-full h-full object-cover" />
+                {/* Mini Stats */}
+                <div className="flex flex-wrap gap-8 pt-4">
+                  <div className="flex items-center gap-3">
+                    <div className="flex -space-x-2">
+                      <div className="w-10 h-10 rounded-full border-2 border-background overflow-hidden">
+                        <AppImage
+                          src="https://img.rocket.new/generatedImages/rocket_gen_img_13fadfdfa-1763295460112.png"
+                          alt="Client testimonial photo of woman smiling"
+                          className="w-full h-full object-cover" />
 
+                      </div>
+                      <div className="w-10 h-10 rounded-full border-2 border-background overflow-hidden">
+                        <AppImage
+                          src="https://img.rocket.new/generatedImages/rocket_gen_img_1181bfe32-1763295010615.png"
+                          alt="Client testimonial photo of man with beard"
+                          className="w-full h-full object-cover" />
+
+                      </div>
+                      <div className="w-10 h-10 rounded-full border-2 border-background overflow-hidden">
+                        <AppImage
+                          src="https://img.rocket.new/generatedImages/rocket_gen_img_1243153ce-1764635353842.png"
+                          alt="Client testimonial photo of woman in elegant attire"
+                          className="w-full h-full object-cover" />
+
+                      </div>
                     </div>
-                    <div className="w-10 h-10 rounded-full border-2 border-background overflow-hidden">
-                      <AppImage
-                        src="https://img.rocket.new/generatedImages/rocket_gen_img_1181bfe32-1763295010615.png"
-                        alt="Client testimonial photo of man with beard"
-                        className="w-full h-full object-cover" />
-
-                    </div>
-                    <div className="w-10 h-10 rounded-full border-2 border-background overflow-hidden">
-                      <AppImage
-                        src="https://img.rocket.new/generatedImages/rocket_gen_img_1243153ce-1764635353842.png"
-                        alt="Client testimonial photo of woman in elegant attire"
-                        className="w-full h-full object-cover" />
-
-                    </div>
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold text-foreground">500+ Happy Clients</p>
-                    <div className="flex items-center gap-1">
-                      <Icon name="StarIcon" size={14} className="text-yellow-400 fill-yellow-400" />
-                      <span className="text-xs text-muted-foreground">5.0 (30+ Reviews on Google)</span>
+                    <div>
+                      <p className="text-sm font-semibold text-foreground">500+ Happy Clients</p>
+                      <div className="flex items-center gap-1">
+                        <Icon name="StarIcon" size={14} className="text-yellow-400 fill-yellow-400" />
+                        <span className="text-xs text-muted-foreground">5.0 (30+ Reviews on Google)</span>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-            {/* Right Visual Card */}
-            <div className="lg:col-span-5 delay-200">
-              <div className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl">
-                <Image
-                  src="/images/studio/soul_frame_studio_cyclorama_with_lights.webp"
-                  alt="Cyclorama infinity wall studio rental in Banaswadi Bangalore"
-                  width={1200}
-                  height={800}
-                  priority
-                  sizes="(max-width:768px) 100vw, 50vw"
-                  className="w-full h-full object-cover" />
+              {/* Right Visual Card */}
+              <div className="lg:col-span-5 delay-200">
+                <div className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl">
+                  <Image
+                    src="/images/studio/soul_frame_studio_cyclorama_with_lights.webp"
+                    alt="Cyclorama infinity wall studio rental in Banaswadi Bangalore"
+                    width={1200}
+                    height={800}
+                    priority
+                    sizes="(max-width:768px) 100vw, 50vw"
+                    className="w-full h-full object-cover" />
 
-                <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-transparent to-transparent" />
 
-                {/* Floating Info Card */}
-                <div className="absolute bottom-6 left-6 right-6 glass-panel rounded-2xl p-4 border border-white/20 animate-float">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-black text-sm font-semibold">Available Today</span>
-                    <div className="flex items-center gap-1">
-                      <div className="w-2 h-2 bg-success rounded-full animate-pulse" />
-                      <span className="text-black text-xs">Open Now</span>
+                  {/* Floating Info Card */}
+                  <div className="absolute bottom-6 left-6 right-6 glass-panel rounded-2xl p-4 border border-white/20 animate-float">
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-black text-sm font-semibold">Available Today</span>
+                      <div className="flex items-center gap-1">
+                        <div className="w-2 h-2 bg-success rounded-full animate-pulse" />
+                        <span className="text-black text-xs">Open Now</span>
+                      </div>
                     </div>
+                    <p className="text-black/80 text-xs">
+                      Book your slot for brand shoots, product photography, cyclorama rental and lifestyle shoots in Bangalore.
+                    </p>
                   </div>
-                  <p className="text-black/80 text-xs">
-                    Book your slot for brand shoots, product photography, cyclorama rental and lifestyle shoots in Bangalore.
-                  </p>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
-</Reveal>
+          </section>
+        </Reveal>
         {/* Commercial Capabilities Overview */}
         <Reveal>
           <h2 className="text-4xl font-bold text-center mb-10">
