@@ -15,6 +15,10 @@ export const metadata: Metadata = {
       { url: '/favicon.ico', type: 'image/x-icon' }
     ],
   },
+  metadataBase: new URL('https://www.soulframestudio.in'),
+  alternates: {
+    canonical: '/',
+  },
 };
 
 export default function RootLayout({

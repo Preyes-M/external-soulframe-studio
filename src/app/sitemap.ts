@@ -1,22 +1,25 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
+    const baseUrl = 'https://www.soulframestudio.in'
     return [
         {
-            url: 'https://www.soulframestudio.in',
+            url: baseUrl,
             lastModified: new Date(),
+            changeFrequency: 'weekly',
+            priority: 1,
         },
         {
-            url: 'https://www.soulframestudio.in/studio-rental',
+            url: `${baseUrl}/studio-rental`,
             lastModified: new Date(),
+            changeFrequency: 'weekly',
+            priority: 0.9,
         },
         {
-            url: 'https://www.soulframestudio.in/services',
+            url: `${baseUrl}/portfolio`,
             lastModified: new Date(),
-        },
-        {
-            url: 'https://www.soulframestudio.in/contact',
-            lastModified: new Date(),
+            changeFrequency: 'weekly',
+            priority: 0.8,
         },
         {
             url: 'https://www.soulframestudio.in/portfolio/product-photography-bangalore',

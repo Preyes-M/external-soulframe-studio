@@ -7,39 +7,31 @@ interface Testimonial {
   id: string;
   name: string;
   role: string;
-  image: string;
-  imageAlt: string;
   rating: number;
   text: string;
 }
 
 const testimonials: Testimonial[] = [
 {
-  id: 'test_1',
-  name: 'Priya Sharma',
+  id: 'testimonial_1',
+  name: 'Deepika Patel',
   role: 'Expecting Mother',
-  image: "https://images.unsplash.com/photo-1652193665133-a197b7424f2c",
-  imageAlt: 'Woman with brown hair smiling at camera',
   rating: 5,
-  text: 'Soul Frame Studio captured my maternity journey beautifully. The photos are absolutely stunning and I will cherish them forever. Highly recommend!'
+  text: 'We did E-Commerce Shoot there. The studio is well equipped and they were cooperative in our entire shoot, you can check out the studio if you need space for shoots. It was a Great Experience.👍🏻'
 },
 {
-  id: 'test_2',
-  name: 'Rahul Mehta',
+  id: 'testimonial_2',
+  name: 'Jithin Sanjay S',
   role: 'E-commerce Brand Owner',
-  image: "https://images.unsplash.com/photo-1671723131667-8c3686fd17e5",
-  imageAlt: 'Man with beard wearing blue shirt outdoors',
   rating: 5,
-  text: 'Professional product photography that increased our conversion rates by 40%. The studio rental option is perfect for our regular shoots.'
+  text: 'Guys trust me It was truly a gem of an experience at Sole Frame Studio. The place has such a great vibe and the team made me feel very comfortable throughout. The quality of work and overall service were excellent. I genuinely suggest everyone to visit this studio  it’s an awesome place and definitely worth it. Highly recommended!'
 },
 {
-  id: 'test_3',
-  name: 'Anjali Reddy',
-  role: 'Fashion Designer',
-  image: "https://images.unsplash.com/photo-1681208776534-be923f9c573a",
-  imageAlt: 'Woman with long dark hair in elegant attire',
+  id: 'testimonial_3',
+  name: 'Preyes',
+  role: 'Product Shoots',
   rating: 5,
-  text: 'Working with Soul Frame Studio for my fashion lookbook was amazing. They understood my vision perfectly and delivered beyond expectations.'
+  text: 'Rishabh has an eye for the great angles and has delivered some great photos of our best selling products. The photos immediately resonated with the product sales. Huge thanks to him and his team.'
 }];
 
 
@@ -61,7 +53,7 @@ export default function TestimonialsCarousel() {
       <div className="glass-panel rounded-3xl p-8 md:p-12 shadow-2xl">
         <div className="flex flex-col md:flex-row items-center gap-8">
           {/* Client Photo */}
-          <div className="flex-shrink-0">
+          {/* <div className="flex-shrink-0">
             <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-primary shadow-lg">
               <AppImage
                 src={current.image}
@@ -69,7 +61,7 @@ export default function TestimonialsCarousel() {
                 className="w-full h-full object-cover" />
               
             </div>
-          </div>
+          </div> */}
 
           {/* Content */}
           <div className="flex-1 text-center md:text-left">
