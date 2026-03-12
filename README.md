@@ -1,7 +1,6 @@
-<<<<<<< HEAD
 # external-soulframe-studio
 customer facing website of soul frame studio
-=======
+
 # Next.js
 
 A modern Next.js 15 application built with TypeScript and Tailwind CSS.
@@ -93,4 +92,3 @@ You can check out the [Next.js GitHub repository](https://github.com/vercel/next
 - Styled with Tailwind CSS
 
 Built with ❤️ on Rocket.new
->>>>>>> 422441e (initial base set up)

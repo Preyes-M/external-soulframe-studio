@@ -26,7 +26,7 @@ export default function Contact() {
       icon: 'PhoneIcon',
       title: 'Phone',
       value: '+91 98765 43210',
-      link: 'tel:+919876543210',
+      link: 'tel:+919731741573',
       description: 'Mon-Sat, 10 AM - 7 PM',
     },
     {
@@ -34,7 +34,7 @@ export default function Contact() {
       icon: 'ChatBubbleLeftRightIcon',
       title: 'WhatsApp',
       value: 'Message Us',
-      link: 'https://wa.me/919876543210',
+      link: 'https://wa.me/919731741573',
       description: 'Quick response guaranteed',
     },
     {
@@ -51,7 +51,7 @@ export default function Contact() {
       title: 'Location',
       value: 'Indiranagar, Bangalore',
       link: 'https://goo.gl/maps/example',
-      description: 'Karnataka 560038',
+      description: 'Karnataka 560043',
     },
   ]
 
@@ -66,7 +66,7 @@ export default function Contact() {
   ]
 
   const socialLinks = [
-    { id: 'social_instagram', icon: 'CameraIcon', href: 'https://instagram.com/soulframestudio', label: 'Instagram' },
+    { id: 'social_instagram', icon: 'CameraIcon', href: 'https://www.instagram.com/soulframestudiobyrd?igsh=Y2ZzdWdrMXZhZ3Ix', label: 'Instagram' },
     { id: 'social_facebook', icon: 'UserGroupIcon', href: 'https://facebook.com/soulframestudio', label: 'Facebook' },
   ]
 
@@ -143,7 +143,7 @@ export default function Contact() {
                         <p className="font-medium text-foreground">Soul Frame Studio</p>
                         <p className="text-sm text-muted-foreground">
                           Indiranagar, Bangalore<br />
-                          Karnataka 560038, India
+                          Karnataka 560043, India
                         </p>
                         <a
                           href="https://goo.gl/maps/example"

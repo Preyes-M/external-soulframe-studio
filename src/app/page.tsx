@@ -199,7 +199,6 @@ export default function Home() {
                   <AppImage
                   src={item.image}
                   alt={item.alt}
-                  fill
                   className="object-cover group-hover:scale-110 transition-transform duration-300" />
                 
                 </div>
