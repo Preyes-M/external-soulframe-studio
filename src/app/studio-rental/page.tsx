@@ -21,6 +21,9 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  icons: {
+    icon: "/favicon.ico",
+  },
   alternates: {
     canonical: 'https://www.soulframestudio.in/studio-rental',
   },

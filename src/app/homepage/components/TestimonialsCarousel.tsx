@@ -15,14 +15,14 @@ const testimonials: Testimonial[] = [
   {
     id: 'testimonial_1',
     name: 'Deepika Patel',
-    role: 'Expecting Mother',
+    role: 'Ecommerce brand owner',
     rating: 5,
     text: 'We did E-Commerce Shoot there. The studio is well equipped and they were cooperative in our entire shoot, you can check out the studio if you need space for shoots. It was a Great Experience.👍🏻',
   },
   {
     id: 'testimonial_2',
     name: 'Jithin Sanjay S',
-    role: 'E-commerce Brand Owner',
+    role: '',
     rating: 5,
     text: 'Guys trust me It was truly a gem of an experience at Sole Frame Studio. The place has such a great vibe and the team made me feel very comfortable throughout. The quality of work and overall service were excellent. I genuinely suggest everyone to visit this studio  it’s an awesome place and definitely worth it. Highly recommended!',
   },

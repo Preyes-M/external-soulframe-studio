@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     'kids photoshoot Bangalore',
     'product photography Bangalore',
   ],
+  icons: {
+    icon: "/favicon.ico",
+  },
   openGraph: {
     title: 'Contact Soul Frame Studio',
     description:

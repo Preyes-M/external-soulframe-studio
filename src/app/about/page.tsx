@@ -22,9 +22,12 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://www.soulframestudio.in/about',
   },
+  icons: {
+    icon: "/favicon.ico",
+  },
 
   robots: {
-    index: false,
+    index: true,
     follow: true,
   },
 };

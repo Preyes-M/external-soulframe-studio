@@ -28,7 +28,9 @@ export const metadata: Metadata = {
     'photography studio Banaswadi Bangalore',
     'podcacst services in north Bangalore',
   ],
-
+  icons: {
+    icon: "/favicon.ico",
+  },
   alternates: {
     canonical: 'https://www.soulframestudio.in/services-pricing',
   },
