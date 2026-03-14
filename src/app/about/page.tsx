@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     canonical: 'https://www.soulframestudio.in/about',
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: '/favicon.ico',
   },
 
   robots: {

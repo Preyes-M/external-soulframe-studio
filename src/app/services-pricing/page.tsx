@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     'podcacst services in north Bangalore',
   ],
   icons: {
-    icon: "/favicon.ico",
+    icon: '/favicon.ico',
   },
   alternates: {
     canonical: 'https://www.soulframestudio.in/services-pricing',

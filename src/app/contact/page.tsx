@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     'product photography Bangalore',
   ],
   icons: {
-    icon: "/favicon.ico",
+    icon: '/favicon.ico',
   },
   openGraph: {
     title: 'Contact Soul Frame Studio',
