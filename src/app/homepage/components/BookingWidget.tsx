@@ -1,22 +1,22 @@
 'use client';
 import { useState } from 'react';
- import Icon from'@/components/ui/AppIcon';
+import Icon from '@/components/ui/AppIcon';
 
 export default function BookingWidget() {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
     shootType: '',
     date: '',
-  })
+  });
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    const message = `Hi, I'd like to book a ${formData.shootType} shoot on ${formData.date}. My name is ${formData.name}, phone: ${formData.phone}`
-    const whatsappUrl = `https://wa.me/919731741573?text=${encodeURIComponent(message)}`
-    window.open(whatsappUrl, '_blank')
-  }
+    e.preventDefault();
+    const message = `Hi, I'd like to book a ${formData.shootType} shoot on ${formData.date}. My name is ${formData.name}, phone: ${formData.phone}`;
+    const whatsappUrl = `https://wa.me/919731741573?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+  };
 
   return (
     <>
@@ -92,5 +92,5 @@ export default function BookingWidget() {
         </a>
       </div>
     </>
-  )
+  );
 }

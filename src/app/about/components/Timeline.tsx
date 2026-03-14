@@ -2,64 +2,68 @@
 import { useEffect, useRef, useState } from 'react';
 
 interface Milestone {
-  id: string
-  year: string
-  title: string
-  description: string
+  id: string;
+  year: string;
+  title: string;
+  description: string;
 }
 
 const milestones: Milestone[] = [
   {
-    id: 'mile_2017',
-    year: '2017',
-    title: 'Started Food Photography',
-    description: 'Started Food Photography combining passion for photography and stepping into the world of commercials',
-  },
-  {
     id: 'mile_2021',
     year: '2021',
-    title: '500+ Happy Clients',
-    description: 'Reached milestone of serving over 500 satisfied clients across Bangalore',
-  },
-  {
-    id: 'mile_2022',
-    year: '2022',
-    title: 'Expanded Services',
-    description: 'Added fashion and product photography to our portfolio',
+    title: 'Food & Product Photography Beginnings',
+    description:
+      'Started our journey in photography by combining a passion for visual storytelling with creating value-driven content for restaurant brands.',
   },
   {
     id: 'mile_2023',
     year: '2023',
-    title: 'New Studio Space',
-    description: 'Moved to larger, fully-equipped studio in Indiranagar',
+    title: 'Expanding Our Horizons',
+    description:
+      'Expanded our services to include maternity and kids photography, helping families capture memories that last a lifetime.',
   },
-]
+  {
+    id: 'mile_2024',
+    year: '2024',
+    title: 'Commercial & Fashion Shoots',
+    description:
+      'Through strong word-of-mouth referrals, we expanded into commercial product photography and fashion shoots.',
+  },
+  {
+    id: 'mile_2025',
+    year: '2025',
+    title: 'Soul Frame Studio',
+    description:
+      'Moved into a larger, fully equipped studio space in Banaswadi to support growing creative projects.',
+  },
+];
 
 export default function Timeline() {
-  const [visibleMilestones, setVisibleMilestones] = useState<string[]>([])
-  const milestonesRef = useRef<(HTMLDivElement | null)[]>([])
+  const [visibleMilestones, setVisibleMilestones] = useState<string[]>([]);
+  const milestonesRef = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            const id = entry.target.getAttribute('data-id')
+            const id = entry.target.getAttribute('data-id');
             if (id) {
-              setVisibleMilestones((prev) => (prev.includes(id) ? prev : [...prev, id]))
+              setVisibleMilestones((prev) => (prev.includes(id) ? prev : [...prev, id]));
             }
           }
-        })
+        });
       },
       { threshold: 0.3 }
-    )
+    );
 
     milestonesRef.current.forEach((ref) => {
-      if (ref) observer.observe(ref)
-    })
+      if (ref) observer.observe(ref);
+    });
 
-    return () => observer.disconnect()
-  }, [])
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <div className="relative">
@@ -71,7 +75,7 @@ export default function Timeline() {
           <div
             key={milestone.id}
             ref={(el) => {
-              milestonesRef.current[index] = el
+              milestonesRef.current[index] = el;
             }}
             data-id={milestone.id}
             className={`relative flex items-center ${
@@ -81,7 +85,9 @@ export default function Timeline() {
             {/* Dot */}
             <div
               className={`absolute left-8 w-4 h-4 rounded-full bg-primary border-4 border-background transition-all duration-500 md:left-1/2 md:-translate-x-1/2 ${
-                visibleMilestones.includes(milestone.id) ? 'scale-100 opacity-100' : 'scale-0 opacity-0'
+                visibleMilestones.includes(milestone.id)
+                  ? 'scale-100 opacity-100'
+                  : 'scale-0 opacity-0'
               }`}
             />
 
@@ -94,7 +100,8 @@ export default function Timeline() {
               <div
                 className={`glass-panel rounded-2xl p-6 transition-all duration-700 ${
                   visibleMilestones.includes(milestone.id)
-                    ? 'opacity-100 translate-y-0' :'opacity-0 translate-y-4'
+                    ? 'opacity-100 translate-y-0'
+                    : 'opacity-0 translate-y-4'
                 }`}
               >
                 <span className="inline-block bg-primary text-primary-foreground px-3 py-1 rounded-full text-xs font-semibold mb-3">
@@ -108,5 +115,5 @@ export default function Timeline() {
         ))}
       </div>
     </div>
-  )
+  );
 }

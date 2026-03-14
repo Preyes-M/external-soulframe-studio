@@ -12,28 +12,28 @@ interface Testimonial {
 }
 
 const testimonials: Testimonial[] = [
-{
-  id: 'testimonial_1',
-  name: 'Deepika Patel',
-  role: 'Expecting Mother',
-  rating: 5,
-  text: 'We did E-Commerce Shoot there. The studio is well equipped and they were cooperative in our entire shoot, you can check out the studio if you need space for shoots. It was a Great Experience.👍🏻'
-},
-{
-  id: 'testimonial_2',
-  name: 'Jithin Sanjay S',
-  role: 'E-commerce Brand Owner',
-  rating: 5,
-  text: 'Guys trust me It was truly a gem of an experience at Sole Frame Studio. The place has such a great vibe and the team made me feel very comfortable throughout. The quality of work and overall service were excellent. I genuinely suggest everyone to visit this studio  it’s an awesome place and definitely worth it. Highly recommended!'
-},
-{
-  id: 'testimonial_3',
-  name: 'Preyes',
-  role: 'Product Shoots',
-  rating: 5,
-  text: 'Rishabh has an eye for the great angles and has delivered some great photos of our best selling products. The photos immediately resonated with the product sales. Huge thanks to him and his team.'
-}];
-
+  {
+    id: 'testimonial_1',
+    name: 'Deepika Patel',
+    role: 'Ecommerce brand owner',
+    rating: 5,
+    text: 'We did E-Commerce Shoot there. The studio is well equipped and they were cooperative in our entire shoot, you can check out the studio if you need space for shoots. It was a Great Experience.👍🏻',
+  },
+  {
+    id: 'testimonial_2',
+    name: 'Jithin Sanjay S',
+    role: '',
+    rating: 5,
+    text: 'Guys trust me It was truly a gem of an experience at Sole Frame Studio. The place has such a great vibe and the team made me feel very comfortable throughout. The quality of work and overall service were excellent. I genuinely suggest everyone to visit this studio  it’s an awesome place and definitely worth it. Highly recommended!',
+  },
+  {
+    id: 'testimonial_3',
+    name: 'Preyes',
+    role: 'Product Shoots',
+    rating: 5,
+    text: 'Rishabh has an eye for the great angles and has delivered some great photos of our best selling products. The photos immediately resonated with the product sales. Huge thanks to him and his team.',
+  },
+];
 
 export default function TestimonialsCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -67,13 +67,20 @@ export default function TestimonialsCarousel() {
           <div className="flex-1 text-center md:text-left">
             {/* Stars */}
             <div className="flex items-center justify-center md:justify-start gap-1 mb-4">
-              {[...Array(current.rating)].map((_, i) =>
-              <Icon key={`star_${current.id}_${i}`} name="StarIcon" size={20} className="text-yellow-400 fill-yellow-400" />
-              )}
+              {[...Array(current.rating)].map((_, i) => (
+                <Icon
+                  key={`star_${current.id}_${i}`}
+                  name="StarIcon"
+                  size={20}
+                  className="text-yellow-400 fill-yellow-400"
+                />
+              ))}
             </div>
 
             {/* Quote */}
-            <p className="text-foreground text-lg leading-relaxed mb-4">&ldquo;{current.text}&rdquo;</p>
+            <p className="text-foreground text-lg leading-relaxed mb-4">
+              &ldquo;{current.text}&rdquo;
+            </p>
 
             {/* Author */}
             <div>
@@ -88,31 +95,31 @@ export default function TestimonialsCarousel() {
           <button
             onClick={prev}
             className="w-10 h-10 rounded-full bg-muted hover:bg-primary hover:text-primary-foreground transition-all flex items-center justify-center"
-            aria-label="Previous testimonial">
-            
+            aria-label="Previous testimonial"
+          >
             <Icon name="ChevronLeftIcon" size={20} />
           </button>
           <div className="flex gap-2">
-            {testimonials.map((_, index) =>
-            <button
-              key={`dot_${index}`}
-              onClick={() => setCurrentIndex(index)}
-              className={`w-2 h-2 rounded-full transition-all ${
-              index === currentIndex ? 'bg-primary w-6' : 'bg-muted'}`
-              }
-              aria-label={`Go to testimonial ${index + 1}`} />
-
-            )}
+            {testimonials.map((_, index) => (
+              <button
+                key={`dot_${index}`}
+                onClick={() => setCurrentIndex(index)}
+                className={`w-2 h-2 rounded-full transition-all ${
+                  index === currentIndex ? 'bg-primary w-6' : 'bg-muted'
+                }`}
+                aria-label={`Go to testimonial ${index + 1}`}
+              />
+            ))}
           </div>
           <button
             onClick={next}
             className="w-10 h-10 rounded-full bg-muted hover:bg-primary hover:text-primary-foreground transition-all flex items-center justify-center"
-            aria-label="Next testimonial">
-            
+            aria-label="Next testimonial"
+          >
             <Icon name="ChevronRightIcon" size={20} />
           </button>
         </div>
       </div>
-    </div>);
-
+    </div>
+  );
 }

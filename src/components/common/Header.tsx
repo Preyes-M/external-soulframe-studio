@@ -1,29 +1,39 @@
 'use client';
 import { useState, useEffect } from 'react';
- import Link from'next/link';
+import Link from 'next/link';
 import { usePathname } from 'next/navigation';
- import Icon from'@/components/ui/AppIcon';
+import Icon from '@/components/ui/AppIcon';
 
 export default function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [isScrolled, setIsScrolled] = useState(false)
-  const pathname = usePathname()
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20)
-    }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const navLinks = [
-    { id: 'nav_portfolio', label: 'Portfolio', href: '/homepage#portfolio' },
+    { id: 'nav_explore', label: 'Explore', href: '/' },
     { id: 'nav_studio', label: 'Studio Rental', href: '/studio-rental' },
     { id: 'nav_services', label: 'Services', href: '/services-pricing' },
     { id: 'nav_about', label: 'About', href: '/about' },
     { id: 'nav_contact', label: 'Contact', href: '/contact' },
-  ]
+  ];
+
+  const isActiveLink = (href: string) => {
+    const [path] = href.split('#');
+
+    if (href.includes('#')) {
+      return pathname === path;
+    }
+
+    return pathname === href || pathname.startsWith(`${href}/`);
+  };
 
   return (
     <>
@@ -36,7 +46,7 @@ export default function Header() {
       >
         <div className="max-w-8xl mx-auto px-6 py-4 flex items-center justify-between">
           {/* Logo */}
-          <Link href="/homepage" className="flex items-center gap-2 group">
+          <Link href="/" className="flex items-center gap-2 group">
             <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center shadow-lg transition-transform duration-500 group-hover:rotate-[360deg]">
               <Icon name="CameraIcon" size={20} className="text-white" />
             </div>
@@ -55,15 +65,15 @@ export default function Header() {
                 key={link.id}
                 href={link.href}
                 className={`text-sm font-medium transition-colors relative group ${
-                  pathname === link.href || pathname.startsWith(link.href.split('#')[0])
-                    ? 'text-primary' :'text-muted-foreground hover:text-foreground'
+                  isActiveLink(link.href)
+                    ? 'text-primary'
+                    : 'text-muted-foreground hover:text-foreground'
                 }`}
               >
                 {link.label}
                 <span
                   className={`absolute -bottom-1 left-0 h-0.5 bg-primary transition-all duration-300 ${
-                    pathname === link.href || pathname.startsWith(link.href.split('#')[0])
-                      ? 'w-full' :'w-0 group-hover:w-full'
+                    isActiveLink(link.href) ? 'w-full' : 'w-0 group-hover:w-full'
                   }`}
                 />
               </Link>
@@ -106,8 +116,7 @@ export default function Header() {
                   href={link.href}
                   onClick={() => setIsMenuOpen(false)}
                   className={`text-lg font-medium py-2 transition-colors ${
-                    pathname === link.href || pathname.startsWith(link.href.split('#')[0])
-                      ? 'text-primary' :'text-foreground hover:text-primary'
+                    isActiveLink(link.href) ? 'text-primary' : 'text-foreground hover:text-primary'
                   }`}
                 >
                   {link.label}
@@ -126,5 +135,5 @@ export default function Header() {
         </div>
       )}
     </>
-  )
+  );
 }

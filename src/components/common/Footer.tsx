@@ -1,34 +1,49 @@
 import Link from 'next/link';
- import Icon from'@/components/ui/AppIcon';
+import Icon from '@/components/ui/AppIcon';
 
 export default function Footer() {
-  const currentYear = 2024
+  const currentYear = new Date().getFullYear();
 
   const studioInfo = [
     { id: 'footer_about', label: 'About Us', href: '/about' },
     { id: 'footer_location', label: 'Location', href: '/contact' },
     { id: 'footer_hours', label: 'Hours: Mon-Sat 10AM-7PM', href: '/contact' },
-  ]
+  ];
 
   const quickLinks = [
-    { id: 'footer_portfolio', label: 'Portfolio', href: '/homepage#portfolio' },
+    { id: 'footer_portfolio', label: 'Portfolio', href: '/#portfolio' },
     { id: 'footer_rental', label: 'Studio Rental', href: '/studio-rental' },
     { id: 'footer_pricing', label: 'Pricing', href: '/services-pricing' },
-  ]
+  ];
 
   const services = [
     { id: 'footer_rentals', label: 'Studio Rental', href: '/studio-rental' },
-    { id: 'footer_product', label: 'Product Photography', href: '/services-pricing#product' },
-    { id: 'footer_maternity', label: 'Maternity Shoots', href: '/services-pricing#maternity' },
-    { id: 'footer_kids', label: 'Kids Photography', href: '/services-pricing#kids' },
-    { id: 'footer_fashion', label: 'Fashion Shoots', href: '/services-pricing#fashion' },
-  ]
+    { id: 'footer_product', label: 'Product Photography', href: '/services-pricing' },
+    { id: 'footer_maternity', label: 'Maternity Shoots', href: '/services-pricing' },
+    { id: 'footer_kids', label: 'Kids Photography', href: '/services-pricing' },
+    { id: 'footer_fashion', label: 'Fashion Shoots', href: '/services-pricing' },
+  ];
 
   const socialLinks = [
-    { id: 'social_instagram', icon: 'CameraIcon', href: 'https://www.instagram.com/soulframestudiobyrd?igsh=Y2ZzdWdrMXZhZ3Ix', label: 'Instagram' },
-    { id: 'social_facebook', icon: 'UserGroupIcon', href: 'https://facebook.com/soulframestudio', label: 'Facebook' },
-    { id: 'social_whatsapp', icon: 'ChatBubbleLeftRightIcon', href: 'https://wa.me/919731741573', label: 'WhatsApp' },
-  ]
+    {
+      id: 'social_instagram',
+      icon: 'CameraIcon',
+      href: 'https://www.instagram.com/soulframestudiobyrd?igsh=Y2ZzdWdrMXZhZ3Ix',
+      label: 'Instagram',
+    },
+    {
+      id: 'social_facebook',
+      icon: 'UserGroupIcon',
+      href: 'https://facebook.com/soulframestudio',
+      label: 'Facebook',
+    },
+    {
+      id: 'social_whatsapp',
+      icon: 'ChatBubbleLeftRightIcon',
+      href: 'https://wa.me/919731741573',
+      label: 'WhatsApp',
+    },
+  ];
 
   return (
     <footer className="bg-card border-t border-border pt-16 pb-8">
@@ -67,7 +82,9 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div className="space-y-4">
-            <h4 className="text-sm font-semibold text-foreground uppercase tracking-wider">Quick Links</h4>
+            <h4 className="text-sm font-semibold text-foreground uppercase tracking-wider">
+              Quick Links
+            </h4>
             <ul className="space-y-2">
               {quickLinks.map((link) => (
                 <li key={link.id}>
@@ -84,7 +101,9 @@ export default function Footer() {
 
           {/* Services */}
           <div className="space-y-4">
-            <h4 className="text-sm font-semibold text-foreground uppercase tracking-wider">Services</h4>
+            <h4 className="text-sm font-semibold text-foreground uppercase tracking-wider">
+              Services
+            </h4>
             <ul className="space-y-2">
               {services.map((service) => (
                 <li key={service.id}>
@@ -101,12 +120,16 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div className="space-y-4">
-            <h4 className="text-sm font-semibold text-foreground uppercase tracking-wider">Contact</h4>
+            <h4 className="text-sm font-semibold text-foreground uppercase tracking-wider">
+              Contact
+            </h4>
             <div className="space-y-3">
               <div className="flex items-start gap-2">
                 <Icon name="MapPinIcon" size={18} className="text-primary mt-0.5 flex-shrink-0" />
                 <p className="text-sm text-muted-foreground">
-                  Banaswadi, Bangalore<br />Karnataka 560043
+                  Banaswadi, Bangalore
+                  <br />
+                  Karnataka 560043
                 </p>
               </div>
               <div className="flex items-center gap-2">
@@ -121,7 +144,7 @@ export default function Footer() {
               <div className="flex items-center gap-2">
                 <Icon name="EnvelopeIcon" size={18} className="text-primary flex-shrink-0" />
                 <a
-                  href="mailto:hello@soulframestudio.com"
+                  href="mailto:soulframestudiobyrd@gmail.com"
                   className="text-sm text-muted-foreground hover:text-primary transition-colors"
                 >
                   soulframestudiobyrd@gmail.com
@@ -136,16 +159,16 @@ export default function Footer() {
           <p className="text-xs text-muted-foreground">
             © {currentYear} Soul Frame Studio. All rights reserved.
           </p>
-          <div className="flex items-center gap-6 text-xs text-muted-foreground">
+          {/* <div className="flex items-center gap-6 text-xs text-muted-foreground">
             <Link href="/privacy" className="hover:text-primary transition-colors">
               Privacy Policy
             </Link>
             <Link href="/terms" className="hover:text-primary transition-colors">
               Terms of Service
             </Link>
-          </div>
+          </div> */}
         </div>
       </div>
     </footer>
-  )
+  );
 }

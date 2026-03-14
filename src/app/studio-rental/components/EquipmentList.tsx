@@ -1,11 +1,11 @@
 'use client';
 import { useState } from 'react';
- import Icon from'@/components/ui/AppIcon';
+import Icon from '@/components/ui/AppIcon';
 
 interface Equipment {
-  id: string
-  category: string
-  items: string[]
+  id: string;
+  category: string;
+  items: string[];
 }
 
 const equipment: Equipment[] = [
@@ -13,11 +13,15 @@ const equipment: Equipment[] = [
     id: 'eq_lighting',
     category: 'Lighting Equipment',
     items: [
-      'Godox SL-60W LED Lights (4 units)',
-      'Softbox Kit (3 units)',
-      'Umbrella Reflectors (2 units)',
-      'Ring Light (1 unit)',
-      'Light Stands (6 units)',
+      'Godox Ad 600 pro',
+      'Godox Ad 300 pro',
+      'Godox Ad 200 pro',
+      'Godox Sk 400 one set',
+      'Godox V1 flash',
+      'Godox Litemons 300 bi colour',
+      'Godox Litemons 300 rgb',
+      'Lc 1000',
+      'All kind of soft boxes available',
     ],
   },
   {
@@ -26,30 +30,32 @@ const equipment: Equipment[] = [
     items: [
       'White Seamless Paper (9ft x 36ft)',
       'Black Seamless Paper (9ft x 36ft)',
-      'Green Screen (10ft x 12ft)',
-      'Textured Fabric Backdrops (5 variants)',
+      'Green Screen (8ft x 12ft)',
       'Posing Stools & Chairs',
+      'Paper backdr ps - arriving soon',
+      'Colour gels - arriving soon',
     ],
   },
   {
     id: 'eq_accessories',
     category: 'Accessories',
     items: [
-      'Tripods (3 units)',
-      'Reflectors (Gold, Silver, White)',
-      'Diffusers',
-      'Color Gels',
-      'Clamps & Clips',
+      'One tripod',
+      'One reflector round (gold silver white)',
+      'Heavy stands and boom stands',
+      'Clamps @ clips',
+      'Tethering cable',
+      'Hollyland Lark m ii Mic',
     ],
   },
-]
+];
 
 export default function EquipmentList() {
-  const [openCategory, setOpenCategory] = useState<string | null>(null)
+  const [openCategory, setOpenCategory] = useState<string | null>(null);
 
   const toggleCategory = (id: string) => {
-    setOpenCategory(openCategory === id ? null : id)
-  }
+    setOpenCategory(openCategory === id ? null : id);
+  };
 
   return (
     <div className="space-y-4">
@@ -72,7 +78,11 @@ export default function EquipmentList() {
             <div className="px-6 pb-6 space-y-2 animate-fade-scale">
               {eq.items.map((item, index) => (
                 <div key={`${eq.id}_item_${index}`} className="flex items-start gap-2">
-                  <Icon name="CheckCircleIcon" size={20} className="text-primary flex-shrink-0 mt-0.5" />
+                  <Icon
+                    name="CheckCircleIcon"
+                    size={20}
+                    className="text-primary flex-shrink-0 mt-0.5"
+                  />
                   <span className="text-muted-foreground text-sm">{item}</span>
                 </div>
               ))}
@@ -81,5 +91,5 @@ export default function EquipmentList() {
         </div>
       ))}
     </div>
-  )
+  );
 }

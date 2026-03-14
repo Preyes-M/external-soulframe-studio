@@ -1,17 +1,20 @@
 'use client';
 import { useState } from 'react';
- import Icon from'@/components/ui/AppIcon';
+import Icon from '@/components/ui/AppIcon';
 
 interface FormData {
-  name: string
-  phone: string
-  email: string
-  shootType: string
-  date: string
-  message: string
+  name: string;
+  phone: string;
+  email: string;
+  shootType: string;
+  date: string;
+  message: string;
 }
 
 export default function ContactForm() {
+  const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+
   const [formData, setFormData] = useState<FormData>({
     name: '',
     phone: '',
@@ -19,48 +22,75 @@ export default function ContactForm() {
     shootType: '',
     date: '',
     message: '',
-  })
-  const [errors, setErrors] = useState<Partial<FormData>>({})
-  const [submitted, setSubmitted] = useState(false)
+  });
+  const [errors, setErrors] = useState<Partial<FormData>>({});
 
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!validateForm()) return;
+
+    try {
+      setLoading(true);
+
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error || 'Something went wrong');
+      }
+
+      setSubmitted(true);
+
+      setFormData({
+        name: '',
+        phone: '',
+        email: '',
+        shootType: '',
+        date: '',
+        message: '',
+      });
+    } catch (err) {
+      alert('Failed to send inquiry. Please try again.');
+    } finally {
+      setLoading(false);
+    }
+  };
   const validateForm = (): boolean => {
-    const newErrors: Partial<FormData> = {}
+    const newErrors: Partial<FormData> = {};
 
-    if (!formData.name.trim()) newErrors.name = 'Name is required'
+    if (!formData.name.trim()) newErrors.name = 'Name is required';
     if (!formData.phone.trim()) {
-      newErrors.phone = 'Phone is required'
+      newErrors.phone = 'Phone is required';
     } else if (!/^[6-9]\d{9}$/.test(formData.phone)) {
-      newErrors.phone = 'Invalid phone number (10 digits starting with 6-9)'
+      newErrors.phone = 'Invalid phone number (10 digits starting with 6-9)';
     }
     if (!formData.email.trim()) {
-      newErrors.email = 'Email is required'
+      newErrors.email = 'Email is required';
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = 'Invalid email address'
+      newErrors.email = 'Invalid email address';
     }
-    if (!formData.shootType) newErrors.shootType = 'Please select shoot type'
-    if (!formData.date) newErrors.date = 'Please select preferred date'
+    if (!formData.shootType) newErrors.shootType = 'Please select shoot type';
+    if (!formData.date) newErrors.date = 'Please select preferred date';
 
-    setErrors(newErrors)
-    return Object.keys(newErrors).length === 0
-  }
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    if (validateForm()) {
-      setSubmitted(true)
-      setTimeout(() => setSubmitted(false), 5000)
-      // In real app, send to backend
-    }
-  }
-
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
   const handleChange = (field: keyof FormData, value: string) => {
-    setFormData({ ...formData, [field]: value })
+    setFormData({ ...formData, [field]: value });
     if (errors[field]) {
-      setErrors({ ...errors, [field]: undefined })
+      setErrors({ ...errors, [field]: undefined });
     }
-  }
+  };
 
-  const minDate = new Date().toISOString().split('T')[0]
+  const minDate = new Date().toISOString().split('T')[0];
 
   return (
     <div className="glass-panel rounded-3xl p-8 md:p-12">
@@ -75,7 +105,7 @@ export default function ContactForm() {
           </p>
           <button
             onClick={() => {
-              setSubmitted(false)
+              setSubmitted(false);
               setFormData({
                 name: '',
                 phone: '',
@@ -83,7 +113,7 @@ export default function ContactForm() {
                 shootType: '',
                 date: '',
                 message: '',
-              })
+              });
             }}
             className="text-primary font-medium hover:underline"
           >
@@ -93,9 +123,7 @@ export default function ContactForm() {
       ) : (
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
-            <label className="block text-sm font-medium text-foreground mb-2">
-              Full Name *
-            </label>
+            <label className="block text-sm font-medium text-foreground mb-2">Full Name *</label>
             <input
               type="text"
               value={formData.name}
@@ -144,9 +172,7 @@ export default function ContactForm() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label className="block text-sm font-medium text-foreground mb-2">
-                Shoot Type *
-              </label>
+              <label className="block text-sm font-medium text-foreground mb-2">Shoot Type *</label>
               <select
                 value={formData.shootType}
                 onChange={(e) => handleChange('shootType', e.target.value)}
@@ -194,12 +220,20 @@ export default function ContactForm() {
             />
           </div>
 
-          <button
+          {/* <button
             type="submit"
             className="w-full bg-primary text-primary-foreground py-4 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 flex items-center justify-center gap-2"
           >
             <span>Submit Inquiry</span>
             <Icon name="PaperAirplaneIcon" size={20} />
+          </button> */}
+          <button
+            type="submit"
+            disabled={loading}
+            className="w-full bg-primary text-primary-foreground py-4 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 flex items-center justify-center gap-2 disabled:opacity-60"
+          >
+            {loading ? 'Sending...' : 'Submit Inquiry'}
+            {!loading && <Icon name="PaperAirplaneIcon" size={20} />}
           </button>
 
           <p className="text-xs text-muted-foreground text-center">
@@ -208,5 +242,5 @@ export default function ContactForm() {
         </form>
       )}
     </div>
-  )
+  );
 }
