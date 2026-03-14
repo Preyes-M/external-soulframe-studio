@@ -12,7 +12,9 @@ export const metadata: Metadata = {
     default: 'SoulFrame Studio | Commercial Photography Studio Bangalore',
     template: '%s | SoulFrame Studio',
   },
-
+  verification: {
+    google: 'S9h67dvtUrbzLgNrgFLLhHegjvcBWy3QZD7PY90a8es',
+  },
   description:
     'Commercial photography studio in Banaswadi Bangalore offering cyclorama studio rental, product photography, food photography and ecommerce shoots.',
 
