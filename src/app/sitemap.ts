@@ -15,8 +15,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
         `${baseUrl}/images/portfolio/maternity/soul_frame_studio_royal_indian_arch.webp`,
         `${baseUrl}/images/portfolio/maternity/soul_frame_studio_niche_wall.webp`,
         `${baseUrl}/images/portfolio/maternity/soul_frame_studio_maternity.webp`,
-        `${baseUrl}/images/portfolio/fashion/soul_frame_studio_fashion_samitha.webp`
-      ]
+        `${baseUrl}/images/portfolio/fashion/soul_frame_studio_fashion_samitha.webp`,
+      ],
     },
     {
       url: `${baseUrl}/studio-rental`,

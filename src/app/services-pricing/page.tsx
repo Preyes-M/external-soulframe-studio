@@ -10,7 +10,8 @@ import Script from 'next/script';
 import { createLocalBusinessSchema } from '@/lib/schema';
 
 export const metadata: Metadata = {
-  title: 'Product, Kids, Maternity, Food & Fashion Photography and Podcast Services in Bangalore | SoulFrame Studio',
+  title:
+    'Product, Kids, Maternity, Food & Fashion Photography and Podcast Services in Bangalore | SoulFrame Studio',
 
   description:
     'Professional product photography, food photography, ecommerce catalog shoots and fashion photography services in Bangalore. SoulFrame Studio helps brands, restaurants and online stores create high quality marketing visuals.',
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
     'brand photography Bangalore',
     'studio photography Bangalore',
     'photography studio Banaswadi Bangalore',
-    'podcacst services in north Bangalore'
+    'podcacst services in north Bangalore',
   ],
 
   alternates: {
