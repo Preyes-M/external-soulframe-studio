@@ -1,18 +1,18 @@
 'use client';
-import Icon from'@/components/ui/AppIcon';
+import Icon from '@/components/ui/AppIcon';
 
 interface Package {
-  id: string
-  name: string
-  price: string
-  popular?: boolean
+  id: string;
+  name: string;
+  price: string;
+  popular?: boolean;
   features: {
-    id: string
-    name: string
-    basic: boolean
-    standard: boolean
-    premium: boolean
-  }[]
+    id: string;
+    name: string;
+    basic: boolean;
+    standard: boolean;
+    premium: boolean;
+  }[];
 }
 
 const packageData: Package = {
@@ -63,47 +63,50 @@ const packageData: Package = {
       premium: true,
     },
   ],
-}
+};
 
 const packages = [
   { id: 'pkg_basic', name: 'Basic', price: '₹6,999', type: 'basic' },
   { id: 'pkg_standard', name: 'Standard', price: '₹12,999', type: 'standard', popular: true },
   { id: 'pkg_premium', name: 'Premium', price: '₹19,999', type: 'premium' },
-]
+];
+
+type PackageTier = (typeof packages)[number]['type'];
+type PackageFeature = Package['features'][number];
 
 export default function PackageComparison() {
-  const getValue = (feature: any, type: string) => {
-    if (type === 'basic') return feature.basic
-    if (type === 'standard') return feature.standard
-    return feature.premium
-  }
+  const getValue = (feature: PackageFeature, type: PackageTier) => {
+    if (type === 'basic') return feature.basic;
+    if (type === 'standard') return feature.standard;
+    return feature.premium;
+  };
 
-  const getDisplayValue = (feature: any, type: string) => {
-    const value = getValue(feature, type)
-    
+  const getDisplayValue = (feature: PackageFeature, type: PackageTier) => {
+    const value = getValue(feature, type);
+
     if (feature.id === 'feat_duration') {
-      if (type === 'basic') return '1 hour'
-      if (type === 'standard') return '2 hours'
-      return '4 hours'
+      if (type === 'basic') return '1 hour';
+      if (type === 'standard') return '2 hours';
+      return '4 hours';
     }
     if (feature.id === 'feat_photos') {
-      if (type === 'basic') return '15 photos'
-      if (type === 'standard') return '30 photos'
-      return '60 photos'
+      if (type === 'basic') return '15 photos';
+      if (type === 'standard') return '30 photos';
+      return '60 photos';
     }
     if (feature.id === 'feat_locations') {
-      if (type === 'basic') return false
-      if (type === 'standard') return '2 locations'
-      return '3 locations'
+      if (type === 'basic') return false;
+      if (type === 'standard') return '2 locations';
+      return '3 locations';
     }
     if (feature.id === 'feat_outfits') {
-      if (type === 'basic') return false
-      if (type === 'standard') return '2 outfits'
-      return '4 outfits'
+      if (type === 'basic') return false;
+      if (type === 'standard') return '2 outfits';
+      return '4 outfits';
     }
-    
-    return value
-  }
+
+    return value;
+  };
 
   return (
     <div className="overflow-x-auto">
@@ -134,7 +137,7 @@ export default function PackageComparison() {
                 <span className="text-sm text-muted-foreground">{feature.name}</span>
               </div>
               {packages.map((pkg) => {
-                const value = getDisplayValue(feature, pkg.type)
+                const value = getDisplayValue(feature, pkg.type);
                 return (
                   <div key={`${feature.id}_${pkg.id}`} className="flex items-center justify-center">
                     {typeof value === 'boolean' ? (
@@ -147,7 +150,7 @@ export default function PackageComparison() {
                       <span className="text-sm font-medium text-foreground">{value}</span>
                     )}
                   </div>
-                )
+                );
               })}
             </div>
           ))}
@@ -173,5 +176,5 @@ export default function PackageComparison() {
         </div>
       </div>
     </div>
-  )
+  );
 }

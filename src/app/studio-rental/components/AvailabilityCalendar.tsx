@@ -1,30 +1,30 @@
 'use client';
 import { useState } from 'react';
- import Icon from'@/components/ui/AppIcon';
+import Icon from '@/components/ui/AppIcon';
 
 export default function AvailabilityCalendar() {
-  const [currentMonth] = useState(new Date())
-  const [selectedDate, setSelectedDate] = useState<Date | null>(null)
+  const [currentMonth] = useState(new Date());
+  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
 
   // Mock booked dates (in real app, fetch from API)
-  const bookedDates = [5, 12, 18, 25]
+  const bookedDates = [5, 12, 18, 25];
 
   const getDaysInMonth = (date: Date) => {
-    const year = date.getFullYear()
-    const month = date.getMonth()
-    const firstDay = new Date(year, month, 1).getDay()
-    const daysInMonth = new Date(year, month + 1, 0).getDate()
-    return { firstDay, daysInMonth }
-  }
+    const year = date.getFullYear();
+    const month = date.getMonth();
+    const firstDay = new Date(year, month, 1).getDay();
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+    return { firstDay, daysInMonth };
+  };
 
-  const { firstDay, daysInMonth } = getDaysInMonth(currentMonth)
-  const monthName = currentMonth.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })
+  const { firstDay, daysInMonth } = getDaysInMonth(currentMonth);
+  const monthName = currentMonth.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
 
   const handleDateClick = (day: number) => {
     if (!bookedDates.includes(day)) {
-      setSelectedDate(new Date(currentMonth.getFullYear(), currentMonth.getMonth(), day))
+      setSelectedDate(new Date(currentMonth.getFullYear(), currentMonth.getMonth(), day));
     }
-  }
+  };
 
   return (
     <div className="glass-panel rounded-2xl p-6">
@@ -45,7 +45,10 @@ export default function AvailabilityCalendar() {
       {/* Calendar Grid */}
       <div className="grid grid-cols-7 gap-2">
         {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((day) => (
-          <div key={`day_${day}`} className="text-center text-xs font-medium text-muted-foreground py-2">
+          <div
+            key={`day_${day}`}
+            className="text-center text-xs font-medium text-muted-foreground py-2"
+          >
             {day}
           </div>
         ))}
@@ -53,11 +56,10 @@ export default function AvailabilityCalendar() {
           <div key={`empty_${i}`} />
         ))}
         {[...Array(daysInMonth)].map((_, i) => {
-          const day = i + 1
-          const isBooked = bookedDates.includes(day)
+          const day = i + 1;
+          const isBooked = bookedDates.includes(day);
           const isSelected =
-            selectedDate?.getDate() === day &&
-            selectedDate?.getMonth() === currentMonth.getMonth()
+            selectedDate?.getDate() === day && selectedDate?.getMonth() === currentMonth.getMonth();
 
           return (
             <button
@@ -68,13 +70,13 @@ export default function AvailabilityCalendar() {
                 isBooked
                   ? 'bg-error/20 text-muted-foreground cursor-not-allowed'
                   : isSelected
-                  ? 'bg-primary text-primary-foreground'
-                  : 'bg-muted text-foreground hover:bg-primary/10'
+                    ? 'bg-primary text-primary-foreground'
+                    : 'bg-muted text-foreground hover:bg-primary/10'
               }`}
             >
               {day}
             </button>
-          )
+          );
         })}
       </div>
 
@@ -93,5 +95,5 @@ export default function AvailabilityCalendar() {
         </div>
       )}
     </div>
-  )
+  );
 }

@@ -9,34 +9,33 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: "SoulFrame Studio | Commercial Photography Studio Bangalore",
-    template: "%s | SoulFrame Studio"
+    default: 'SoulFrame Studio | Commercial Photography Studio Bangalore',
+    template: '%s | SoulFrame Studio',
   },
 
   description:
-    "Commercial photography studio in Banaswadi Bangalore offering cyclorama studio rental, product photography, food photography and ecommerce shoots.",
+    'Commercial photography studio in Banaswadi Bangalore offering cyclorama studio rental, product photography, food photography and ecommerce shoots.',
 
   icons: {
-    icon: [{ url: "/favicon.ico", type: "image/x-icon" }]
+    icon: [{ url: '/favicon.ico', type: 'image/x-icon' }],
   },
   robots: {
-    index: false,
-    follow: true
+    index: true,
+    follow: true,
   },
   metadataBase: new URL('https://www.soulframestudio.in'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
-    title:
-      "Commercial Photography Studio & Rental in Banaswadi, Bangalore | SoulFrame Studio",
+    title: 'Commercial Photography Studio & Rental in Banaswadi, Bangalore | SoulFrame Studio',
     description:
-      "Cyclorama infinity wall studio rental and commercial photography for brands and ecommerce businesses in Bangalore.",
-    url: "https://www.soulframestudio.in",
-    siteName: "SoulFrame Studio",
-    locale: "en_IN",
-    type: "website",
-  }
+      'Cyclorama infinity wall studio rental and commercial photography for brands and ecommerce businesses in Bangalore.',
+    url: 'https://www.soulframestudio.in',
+    siteName: 'SoulFrame Studio',
+    locale: 'en_IN',
+    type: 'website',
+  },
 };
 
 export default function RootLayout({
@@ -46,8 +45,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}
-</body>
+      <body>{children}</body>
     </html>
   );
 }

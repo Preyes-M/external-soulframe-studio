@@ -1,77 +1,63 @@
-import AppImage from '@/components/ui/AppImage';
 import Icon from '@/components/ui/AppIcon';
 import Header from '@/components/common/Header';
 import Footer from '@/components/common/Footer';
 import Timeline from './components/Timeline';
 import { Metadata } from 'next';
 import Reveal from '../../Reveal';
+import Image from 'next/image';
+
+type Feature = {
+  id: string;
+  icon: string;
+  title: string;
+  description: string;
+};
 
 export const metadata: Metadata = {
-  title: "About SoulFrame Studio | Commercial Photography Studio Bangalore",
+  title: 'About SoulFrame Studio | Commercial Photography Studio Bangalore',
 
   description:
-    "SoulFrame Studio founded by photographer Rishabh Daga is a commercial photography studio in Banaswadi Bangalore specializing in product photography, fashion shoots and ecommerce catalog photography.",
+    'SoulFrame Studio founded by photographer Rishabh Daga is a commercial photography studio in Banaswadi Bangalore specializing in product photography, fashion shoots and ecommerce catalog photography.',
 
   alternates: {
-    canonical: "https://www.soulframestudio.in/about"
+    canonical: 'https://www.soulframestudio.in/about',
   },
 
   robots: {
     index: false,
-    follow: true
-  }
+    follow: true,
+  },
 };
 
-
 export default function About() {
-
-  const features = [
+  const features: Feature[] = [
     {
       id: 'feat_team',
       icon: 'UserGroupIcon',
       title: 'Professional Team',
-      description: 'Experienced photographers with 5+ years in maternity, kids, fashion, and product photography'
+      description:
+        'Experienced photographers with 5+ years in maternity, kids, fashion, and product photography',
     },
     {
       id: 'feat_experience',
       icon: 'StarIcon',
       title: '5+ Years Experience',
-      description: '500+ happy clients and counting. Trusted by families and brands across Bangalore'
+      description:
+        '200+ happy clients and counting. Trusted by families and brands across Bangalore',
     },
     {
       id: 'feat_clients',
       icon: 'HeartIcon',
-      title: '500+ Happy Clients',
-      description: 'Consistently rated 5 stars for quality, professionalism, and customer service'
+      title: '200+ Happy Clients',
+      description: 'Consistently rated 5 stars for quality, professionalism, and customer service',
     },
     {
       id: 'feat_flexible',
       icon: 'MapPinIcon',
       title: 'Studio + On-location',
-      description: 'Fully equipped studio in Indiranagar plus on-location shoots across Bangalore'
-    }];
-
-
-  const awards = [
-    {
-      id: 'award_1',
-      name: 'Featured in Bangalore Times',
-      logo: "https://img.rocket.new/generatedImages/rocket_gen_img_1003f0796-1770911661645.png",
-      logoAlt: 'Newspaper publication logo'
+      description: 'Fully equipped studio in Banaswadi plus on-location shoots across Bangalore',
     },
-    {
-      id: 'award_2',
-      name: 'Top Rated on Google',
-      logo: "https://img.rocket.new/generatedImages/rocket_gen_img_1de5f9482-1770911660949.png",
-      logoAlt: 'Award badge icon'
-    },
-    {
-      id: 'award_3',
-      name: 'Wedding Wire Recommended',
-      logo: "https://img.rocket.new/generatedImages/rocket_gen_img_1bcb14987-1767146667343.png",
-      logoAlt: 'Recognition certificate icon'
-    }];
-
+  ];
 
   return (
     <>
@@ -82,30 +68,41 @@ export default function About() {
           <section className="max-w-8xl mx-auto px-6 py-16 md:py-24">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               {/* Founder Photo */}
-              <div >
+              <div>
                 <div className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl">
-                  <AppImage
-                    src="https://img.rocket.new/generatedImages/rocket_gen_img_1d8f9ca7e-1765286043112.png"
+                  <Image
+                    src="/images/about/soul_frame_studio_rishabh_daga_founder.webp"
+                    fill
                     alt="Studio founder holding camera with warm smile in photography studio"
-                    className="w-full h-full object-cover grayscale-hover" />
-
+                    className="w-full h-full object-cover grayscale-hover"
+                  />
                 </div>
               </div>
 
               {/* Story */}
               <div className="delay-200 space-y-6">
-                <h1 className="text-5xl md:text-6xl font-bold text-foreground">
-                  Our Story
-                </h1>
+                <h1 className="text-5xl md:text-6xl font-bold text-foreground">Our Story</h1>
                 <div className="space-y-4 text-muted-foreground leading-relaxed">
                   <p>
-                    Soul Frame Studio was born from a simple passion: capturing authentic moments that tell real stories. Founded in 2020, we started with a vision to provide Bangalore with premium photography services that celebrate life&apos;s precious moments.
+                    Soul Frame Studio was born from a simple passion — capturing authentic moments
+                    that tell real stories. Founded in 2021, our vision has always been to create
+                    meaningful photographs that celebrate life’s most precious milestones.
                   </p>
                   <p>
-                    What began as a small studio has grown into a trusted name for maternity, kids, fashion, and product photography. We believe every photo should preserve not just how you looked, but how you felt in that moment.
+                    What began as a small creative pursuit has grown into a trusted studio for
+                    maternity, kids, fashion, and product photography. We believe a photograph
+                    should preserve more than just how you looked — it should capture how you felt
+                    in that moment.
                   </p>
                   <p>
-                    Today, we&apos;re proud to have served over 500 happy clients, from expecting mothers to fashion designers and e-commerce brands. Our fully equipped studio in Indiranagar combines professional equipment with a comfortable, welcoming atmosphere.
+                    Today, we are proud to have served over 200 happy clients, from expecting
+                    mothers to fashion designers and e-commerce brands. Our fully equipped studio in
+                    Banaswadi blends professional-grade equipment with a warm, welcoming environment
+                    where creativity and comfort come together.
+                  </p>
+                  <p>
+                    At Soul Frame Studio, every frame is more than a photograph — it’s a memory
+                    preserved for a lifetime.
                   </p>
                 </div>
                 <div className="flex items-center gap-4 pt-4">
@@ -124,14 +121,15 @@ export default function About() {
                 <Icon name="EyeIcon" size={40} className="text-primary mb-6" />
                 <h2 className="text-3xl font-bold text-foreground mb-4">Our Vision</h2>
                 <p className="text-muted-foreground leading-relaxed">
-                  To be Bangalore&apos;s most trusted photography studio, known for capturing authentic moments with artistic excellence and genuine care for every client.
+                  To create timeless photographs that preserve life’s most meaningful stories.
                 </p>
               </div>
               <div className="glass-panel rounded-3xl p-8 md:p-12">
                 <Icon name="SparklesIcon" size={40} className="text-primary mb-6" />
                 <h2 className="text-3xl font-bold text-foreground mb-4">Our Mission</h2>
                 <p className="text-muted-foreground leading-relaxed">
-                  To preserve life&apos;s precious moments through professional photography that combines technical expertise with emotional storytelling, making every client feel valued and beautiful.
+                  To craft authentic visual stories for families and brands through creativity,
+                  care, and professional excellence.
                 </p>
               </div>
             </div>
@@ -150,19 +148,21 @@ export default function About() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {features.map((feature, index) =>
+              {features.map((feature, index) => (
                 <div
                   key={feature.id}
                   className="glass-panel rounded-2xl p-6 hover:shadow-xl transition-all hover:-translate-y-1"
-                  style={{ animationDelay: `${index * 100}ms` }}>
-
+                  style={{ animationDelay: `${index * 100}ms` }}
+                >
                   <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
-                    <Icon name={feature.icon as any} size={28} className="text-primary" />
+                    <Icon name={feature.icon as never} size={28} className="text-primary" />
                   </div>
                   <h3 className="text-xl font-semibold text-foreground mb-2">{feature.title}</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">{feature.description}</p>
+                  <p className="text-muted-foreground text-sm leading-relaxed">
+                    {feature.description}
+                  </p>
                 </div>
-              )}
+              ))}
             </div>
           </section>
         </Reveal>
@@ -170,9 +170,7 @@ export default function About() {
           {/* Timeline */}
           <section className="max-w-6xl mx-auto px-6 py-16 md:py-24">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-                Our Journey
-              </h2>
+              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">Our Journey</h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                 Milestones that shaped Soul Frame Studio
               </p>
@@ -181,8 +179,8 @@ export default function About() {
             <Timeline />
           </section>
         </Reveal>
-        <Reveal>
-          {/* Awards & Recognition */}
+        {/* Awards & Recognition */}
+        {/* <Reveal>
           <section className="max-w-8xl mx-auto px-6 py-16 md:py-24">
             <div className="text-center mb-12">
               <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
@@ -211,29 +209,27 @@ export default function About() {
               )}
             </div>
           </section>
-        </Reveal>
+        </Reveal> */}
         <Reveal>
           {/* CTA */}
           <section className="max-w-8xl mx-auto px-6 py-16 md:py-24">
             <div className="glass-panel rounded-3xl p-12 text-center">
-              <h2 className="text-4xl font-bold text-foreground mb-4">
-                Ready to Work With Us?
-              </h2>
+              <h2 className="text-4xl font-bold text-foreground mb-4">Ready to Work With Us?</h2>
               <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
                 Let&apos;s create beautiful memories together. Book your photography session today
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
                   href="/services-pricing"
-                  className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
-
+                  className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all hover:-translate-y-1"
+                >
                   <span>View Services</span>
                   <Icon name="ArrowRightIcon" size={20} />
                 </a>
                 <a
                   href="/contact"
-                  className="inline-flex items-center justify-center gap-2 bg-card text-foreground border-2 border-border px-8 py-4 rounded-full font-semibold hover:border-primary transition-all">
-
+                  className="inline-flex items-center justify-center gap-2 bg-card text-foreground border-2 border-border px-8 py-4 rounded-full font-semibold hover:border-primary transition-all"
+                >
                   <span>Contact Us</span>
                   <Icon name="EnvelopeIcon" size={20} />
                 </a>
@@ -244,6 +240,6 @@ export default function About() {
       </main>
 
       <Footer />
-    </>);
-
+    </>
+  );
 }

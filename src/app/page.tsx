@@ -1,484 +1,481 @@
-'use client';
-
-import React from 'react';
-
-import Icon from '@/components/ui/AppIcon';
+import type { Metadata } from 'next';
 import AppImage from '@/components/ui/AppImage';
+import Icon from '@/components/ui/AppIcon';
+import Header from '@/components/common/Header';
+import Footer from '@/components/common/Footer';
+import { FAQ } from '@/components/ui/FAQ';
+import BookingWidget from './homepage/components/BookingWidget';
+import StatsCounter from './homepage/components/StatsCounter';
+import TestimonialsCarousel from './homepage/components/TestimonialsCarousel';
+import Image from 'next/image';
+import Script from 'next/script';
+import { createLocalBusinessSchema } from '@/lib/schema';
+import Reveal from '../Reveal';
 
-interface PortfolioItem {
-  id: number;
-  title: string;
-  category: string;
-  image: string;
-  alt: string;
-}
-
-interface Service {
-  id: number;
-  name: string;
-  description: string;
-  price: string;
-  features: string[];
-}
-
-interface Testimonial {
-  id: number;
-  name: string;
-  role: string;
-  content: string;
-  image: string;
-  alt: string;
-  rating: number;
-}
+export const metadata: Metadata = {
+  title: 'Commercial Photography Studio & Cyclorama Rental in Bangalore',
+  description:
+    'SoulFrame Studio is a commercial photography studio in Banaswadi Bangalore offering cyclorama studio rental, product photography, food photography and ecommerce shoots for brands and agencies.',
+  alternates: {
+    canonical: 'https://www.soulframestudio.in',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  openGraph: {
+    title: 'Commercial Photography Studio & Cyclorama Rental in Bangalore',
+    description:
+      'Cyclorama infinity wall studio rental and commercial photography services for brands in Bangalore.',
+    url: 'https://www.soulframestudio.in',
+  },
+};
 
 export default function Home() {
-  const portfolioItems: PortfolioItem[] = [
-  {
-    id: 1,
-    title: 'Fashion Editorial',
-    category: 'Photography',
-    image: "https://img.rocket.new/generatedImages/rocket_gen_img_1bb9b2cef-1767962826093.png",
-    alt: 'Fashion model in elegant dress during editorial photoshoot'
-  },
-  {
-    id: 2,
-    title: 'Product Showcase',
-    category: 'Commercial',
-    image: "https://img.rocket.new/generatedImages/rocket_gen_img_15c2d19c9-1768128304581.png",
-    alt: 'Professional product photography of headphones on white background'
-  },
-  {
-    id: 3,
-    title: 'Portrait Session',
-    category: 'Portrait',
-    image: "https://img.rocket.new/generatedImages/rocket_gen_img_18b2be940-1763299828156.png",
-    alt: 'Professional portrait of woman with natural lighting'
-  },
-  {
-    id: 4,
-    title: 'Brand Campaign',
-    category: 'Commercial',
-    image: "https://img.rocket.new/generatedImages/rocket_gen_img_1c69ee42f-1765969452699.png",
-    alt: 'Commercial brand campaign photoshoot in modern studio'
-  },
-  {
-    id: 5,
-    title: 'Lifestyle Photography',
-    category: 'Lifestyle',
-    image: "https://img.rocket.new/generatedImages/rocket_gen_img_1e9d7d421-1766878835739.png",
-    alt: 'Lifestyle photography of people collaborating in bright workspace'
-  },
-  {
-    id: 6,
-    title: 'Creative Art',
-    category: 'Art',
-    image: "https://img.rocket.new/generatedImages/rocket_gen_img_1ed12055b-1769430428348.png",
-    alt: 'Creative art photography with colorful abstract composition'
-  }];
+  const services = [
+    {
+      id: 'service_rentals',
+      title: 'Studio Rental',
+      description: 'Premium studio rental for professional photography and video shoots',
+      image: '/images/studio/soul_frame_studio_cyclorama_with_lights.webp',
+      imageAlt:
+        'Premium professional studio with a large Cyclorama and 20+ setups with soft lighting at Soul Frame Studio in Banaswadi Bangalore',
+      href: '/studio-rental',
+    },
+    {
+      id: 'service_product',
+      title: 'Product Photography',
+      description: 'E-commerce photography that drives sales and conversions',
+      image: '/images/portfolio/product/soul_frame_studio_product_photography_perfume.webp',
+      imageAlt:
+        'Luxury watch on marble surface with dramatic lighting at Soul Frame Studio in Banaswadi Bangalore',
+      href: '/services-pricing',
+    },
+    {
+      id: 'service_ecommerce',
+      title: 'E-commerce Photography',
+      description: 'Professional product photography for online stores and marketing',
+      image: '/images/portfolio/ecommerce/soul_frame_studio_ecommerce_portfolio_box.webp',
+      imageAlt:
+        'Product photography setup with studio lighting at Soul Frame Studio in Banaswadi Bangalore',
+      href: '/services-pricing',
+    },
+    {
+      id: 'service_fashion',
+      title: 'Fashion Shoots',
+      description: 'Professional fashion photography for designers and models',
+      image: '/images/portfolio/fashion/soul_frame_studio_fashion.webp',
+      imageAlt:
+        'Fashion model in modern indian dresses with studio lighting at Soul Frame Studio in Banaswadi Bangalore',
+      href: '/services-pricing',
+    },
+  ];
 
-
-  const services: Service[] = [
-  {
-    id: 1,
-    name: 'Studio Rental',
-    description: 'Professional photography studio with complete equipment',
-    price: '$150/hour',
-    features: ['Professional lighting', 'Backdrops included', 'Equipment available', 'Makeup area']
-  },
-  {
-    id: 2,
-    name: 'Photography Session',
-    description: 'Complete photography service with professional editing',
-    price: '$500/session',
-    features: ['2-hour session', 'Professional photographer', '50+ edited photos', 'Online gallery']
-  },
-  {
-    id: 3,
-    name: 'Video Production',
-    description: 'Full video production service from concept to delivery',
-    price: '$1500/day',
-    features: ['4K recording', 'Professional crew', 'Post-production', 'Color grading']
-  },
-  {
-    id: 4,
-    name: 'Event Coverage',
-    description: 'Complete event photography and videography coverage',
-    price: '$800/event',
-    features: ['Full day coverage', 'Multiple photographers', 'Same-day highlights', 'Full gallery delivery']
-  }];
-
-
-  const testimonials: Testimonial[] = [
-  {
-    id: 1,
-    name: 'Sarah Johnson',
-    role: 'Fashion Designer',
-    content: 'SoulFrame Studio exceeded all expectations. The quality of work and professionalism is unmatched. Highly recommend for any creative project!',
-    image: "https://img.rocket.new/generatedImages/rocket_gen_img_111df9fb0-1763296195252.png",
-    alt: 'Portrait of Sarah Johnson, fashion designer client',
-    rating: 5
-  },
-  {
-    id: 2,
-    name: 'Michael Chen',
-    role: 'Brand Manager',
-    content: 'Working with SoulFrame was a game-changer for our brand campaign. Their attention to detail and creative vision brought our ideas to life perfectly.',
-    image: "https://img.rocket.new/generatedImages/rocket_gen_img_1614f696c-1763295242937.png",
-    alt: 'Portrait of Michael Chen, brand manager client',
-    rating: 5
-  },
-  {
-    id: 3,
-    name: 'Emily Rodriguez',
-    role: 'Entrepreneur',
-    content: 'The studio rental was perfect for our product shoot. Everything we needed was available, and the space was incredibly professional and well-maintained.',
-    image: "https://img.rocket.new/generatedImages/rocket_gen_img_1032ac7e1-1763301399306.png",
-    alt: 'Portrait of Emily Rodriguez, entrepreneur client',
-    rating: 5
-  }];
-
-
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  const features = [
+    {
+      id: 'feature_professional',
+      icon: 'CameraIcon',
+      title: 'Professional Team',
+      description: 'Experienced photographers with 5+ years in the industry',
+    },
+    {
+      id: 'feature_studio',
+      icon: 'HomeIcon',
+      title: 'Premium Studio',
+      description: 'State-of-the-art equipment and comfortable shooting space',
+    },
+    {
+      id: 'feature_affordable',
+      icon: 'CurrencyRupeeIcon',
+      title: 'Affordable Packages',
+      description: 'Competitive pricing with flexible payment options',
+    },
+    {
+      id: 'feature_delivery',
+      icon: 'ClockIcon',
+      title: 'Quick Delivery',
+      description: 'Edited photos delivered within 7-10 working days',
+    },
+  ];
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm shadow-sm z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="text-2xl font-bold text-gray-900">SoulFrame Studio</div>
-            <div className="hidden md:flex space-x-8">
-              <button onClick={() => scrollToSection('hero')} className="text-gray-700 hover:text-gray-900 transition-colors">Home</button>
-              <button onClick={() => scrollToSection('portfolio')} className="text-gray-700 hover:text-gray-900 transition-colors">Portfolio</button>
-              <button onClick={() => scrollToSection('studio')} className="text-gray-700 hover:text-gray-900 transition-colors">Studio</button>
-              <button onClick={() => scrollToSection('services')} className="text-gray-700 hover:text-gray-900 transition-colors">Services</button>
-              <button onClick={() => scrollToSection('about')} className="text-gray-700 hover:text-gray-900 transition-colors">About</button>
-              <button onClick={() => scrollToSection('testimonials')} className="text-gray-700 hover:text-gray-900 transition-colors">Testimonials</button>
-              <button onClick={() => scrollToSection('contact')} className="text-gray-700 hover:text-gray-900 transition-colors">Contact</button>
-            </div>
-          </div>
-        </div>
-      </nav>
-
-      {/* Hero Section */}
-      <section id="hero" className="pt-16 min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
-          <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6">
-            Capture Your Vision
-          </h1>
-          <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
-            Professional photography studio and creative space where your ideas come to life
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button onClick={() => scrollToSection('contact')} className="px-8 py-4 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors text-lg font-semibold">
-              Book a Session
-            </button>
-            <button onClick={() => scrollToSection('portfolio')} className="px-8 py-4 bg-white text-gray-900 border-2 border-gray-900 rounded-lg hover:bg-gray-50 transition-colors text-lg font-semibold">
-              View Portfolio
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* Portfolio Grid Section */}
-      <section id="portfolio" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Our Portfolio</h2>
-            <p className="text-xl text-gray-600">Showcasing our best creative work</p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {portfolioItems.map((item) =>
-            <div key={item.id} className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
-                <div className="aspect-square">
-                  <AppImage
-                  src={item.image}
-                  alt={item.alt}
-                  className="object-cover group-hover:scale-110 transition-transform duration-300" />
-                
+    <>
+      <Header />
+      <main className="bg-background min-h-screen pt-20">
+        <Reveal>
+          <section className="max-w-8xl mx-auto px-6 py-16 md:py-24">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+              <div className="lg:col-span-7 space-y-8">
+                <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium">
+                  <Icon name="MapPinIcon" size={16} />
+                  <span>Banaswadi, Bangalore Studio</span>
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                  <span className="text-sm text-gray-300 mb-2">{item.category}</span>
-                  <h3 className="text-xl font-bold text-white">{item.title}</h3>
+                <h1 className="text-5xl md:text-6xl font-bold text-foreground leading-tight">
+                  Commercial Photography Studio & Rental Space
+                  <br />
+                  <span className="text-primary">Banaswadi, Bangalore</span>
+                </h1>
+                <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
+                  Cyclorama Infinity Wall Studio Rental | Product Photography | Food Photography |
+                  Ecommerce Shoots for Brands in Bangalore
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <a
+                    href="tel:+919731741573"
+                    className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 relative overflow-hidden group"
+                  >
+                    <span className="relative z-10">Request Commercial Quote</span>
+                    <Icon name="PhoneIcon" size={20} className="relative z-10" />
+                    <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:animate-shimmer" />
+                  </a>
+                  <a
+                    href="https://wa.me/919731741573"
+                    className="inline-flex items-center justify-center gap-2 bg-green-500 text-white px-8 py-4 rounded-full font-semibold"
+                  >
+                    WhatsApp Quote
+                  </a>
+                </div>
+                <div className="flex flex-wrap gap-8 pt-4">
+                  <div className="flex items-center gap-3">
+                    <div className="flex -space-x-2">
+                      <div className="w-10 h-10 rounded-full border-2 border-background overflow-hidden">
+                        <AppImage
+                          src="https://img.rocket.new/generatedImages/rocket_gen_img_13fadfdfa-1763295460112.png"
+                          alt="Client testimonial photo of woman smiling"
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div className="w-10 h-10 rounded-full border-2 border-background overflow-hidden">
+                        <AppImage
+                          src="https://img.rocket.new/generatedImages/rocket_gen_img_1181bfe32-1763295010615.png"
+                          alt="Client testimonial photo of man with beard"
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div className="w-10 h-10 rounded-full border-2 border-background overflow-hidden">
+                        <AppImage
+                          src="https://img.rocket.new/generatedImages/rocket_gen_img_1243153ce-1764635353842.png"
+                          alt="Client testimonial photo of woman in elegant attire"
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold text-foreground">200+ Happy Clients</p>
+                      <div className="flex items-center gap-1">
+                        <Icon
+                          name="StarIcon"
+                          size={14}
+                          className="text-yellow-400 fill-yellow-400"
+                        />
+                        <span className="text-xs text-muted-foreground">
+                          5.0 (30+ Reviews on Google)
+                        </span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-            )}
-          </div>
-        </div>
-      </section>
-
-      {/* Studio Rental Section */}
-      <section id="studio" className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Studio Rental</h2>
-              <p className="text-lg text-gray-600 mb-8">
-                Our state-of-the-art photography studio is available for rent. Equipped with professional lighting, backdrops, and all the equipment you need for your creative projects.
+              <div className="lg:col-span-5 delay-200">
+                <div className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl">
+                  <Image
+                    src="/images/studio/soul_frame_studio_cyclorama_with_lights.webp"
+                    alt="Cyclorama infinity wall studio rental in Banaswadi Bangalore"
+                    width={1200}
+                    height={800}
+                    priority
+                    sizes="(max-width:768px) 100vw, 50vw"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-transparent to-transparent" />
+                  <div className="absolute bottom-6 left-6 right-6 glass-panel rounded-2xl p-4 border border-white/20 animate-float">
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-black text-sm font-semibold">Available Today</span>
+                      <div className="flex items-center gap-1">
+                        <div className="w-2 h-2 bg-success rounded-full animate-pulse" />
+                        <span className="text-black text-xs">Open Now</span>
+                      </div>
+                    </div>
+                    <p className="text-black/80 text-xs">
+                      Book your slot for brand shoots, product photography, cyclorama rental and
+                      lifestyle shoots in Bangalore.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </Reveal>
+        <Reveal>
+          <section className="max-w-8xl mx-auto px-6 py-16 md:py-24">
+            <h2 className="text-4xl font-bold text-center mb-10">
+              Commercial Photography Capabilities
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              <div className="glass-panel p-6 rounded-2xl">
+                <Icon name="CameraIcon" size={24} className="text-primary mb-3" />
+                <h3 className="font-semibold text-lg mb-2">Product Photography</h3>
+                <p className="text-sm text-muted-foreground">
+                  Professional ecommerce product photography for D2C brands, Amazon and Shopify
+                  sellers in Bangalore. Packages starting from ₹4,999.
+                </p>
+              </div>
+              <div className="glass-panel p-6 rounded-2xl">
+                <Icon name="CameraIcon" size={24} className="text-primary mb-3" />
+                <h3 className="font-semibold text-lg mb-2">Food Photography</h3>
+                <p className="text-sm text-muted-foreground">
+                  Restaurant menu photography and advertising visuals for cafes, food brands and
+                  cloud kitchens. Packages starting from ₹4,999.
+                </p>
+              </div>
+              <div className="glass-panel p-6 rounded-2xl">
+                <Icon name="CameraIcon" size={24} className="text-primary mb-3" />
+                <h3 className="font-semibold text-lg mb-2">Fashion Campaigns</h3>
+                <p className="text-sm text-muted-foreground">
+                  Fashion lookbooks, designer campaigns and model portfolio shoots produced inside
+                  our professional studio environment. Packages starting from ₹9,999.
+                </p>
+              </div>
+              <div className="glass-panel p-6 rounded-2xl">
+                <Icon name="CameraIcon" size={24} className="text-primary mb-3" />
+                <h3 className="font-semibold text-lg mb-2">Studio Rental</h3>
+                <p className="text-sm text-muted-foreground">
+                  Professional cyclorama infinity wall photography studio rental in Bangalore for
+                  photographers, brands and agencies. Starting from ₹2,000 + GST.
+                </p>
+              </div>
+            </div>
+          </section>
+        </Reveal>
+        <Reveal>
+          <section id="portfolio" className="max-w-8xl mx-auto px-6 py-16 md:py-24 scroll-mt-24">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+                Commercial Photography Portfolio
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                Professional photography services tailored to capture your special moments
               </p>
-              <div className="space-y-4">
-                <div className="flex items-start">
-                  <Icon name="CheckCircleIcon" className="text-green-600 mr-3 mt-1" size={24} />
-                  <div>
-                    <h3 className="font-semibold text-gray-900">Professional Equipment</h3>
-                    <p className="text-gray-600">High-end cameras, lighting, and accessories</p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {services.map((service, index) => (
+                <a
+                  key={service.id}
+                  href={service.href}
+                  className="group relative aspect-[16/10] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
+                  style={{ animationDelay: `${index * 100}ms` }}
+                >
+                  <Image
+                    src={service.image}
+                    alt={service.imageAlt}
+                    fill
+                    className="w-full h-full object-cover grayscale-hover group-hover:scale-110 transition-all duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/40 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-6">
+                    <div className="flex items-end justify-between">
+                      <div>
+                        <h3 className="text-white text-2xl font-bold mb-2">{service.title}</h3>
+                        <p className="text-white/80 text-sm mb-3">{service.description}</p>
+                      </div>
+                      <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:bg-primary transition-all">
+                        <Icon name="ArrowRightIcon" size={24} className="text-white" />
+                      </div>
+                    </div>
                   </div>
-                </div>
-                <div className="flex items-start">
-                  <Icon name="CheckCircleIcon" className="text-green-600 mr-3 mt-1" size={24} />
-                  <div>
-                    <h3 className="font-semibold text-gray-900">Flexible Spaces</h3>
-                    <p className="text-gray-600">Multiple backdrops and customizable setups</p>
+                </a>
+              ))}
+            </div>
+          </section>
+        </Reveal>
+        <Reveal>
+          <section className="max-w-8xl mx-auto px-6 py-16 md:py-24">
+            <StatsCounter />
+          </section>
+        </Reveal>
+        <Reveal>
+          <section className="max-w-8xl mx-auto px-6 py-16 md:py-24">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+                Why Choose Soul Frame Studio
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                Experience, quality, and dedication in every frame
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {features.map((feature, index) => (
+                <div
+                  key={feature.id}
+                  className="glass-panel rounded-2xl p-6 hover:shadow-xl transition-all hover:-translate-y-1"
+                  style={{ animationDelay: `${index * 100}ms` }}
+                >
+                  <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
+                    <Icon name={feature.icon as never} size={28} className="text-primary" />
                   </div>
+                  <h3 className="text-xl font-semibold text-foreground mb-2">{feature.title}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">
+                    {feature.description}
+                  </p>
                 </div>
-                <div className="flex items-start">
-                  <Icon name="CheckCircleIcon" className="text-green-600 mr-3 mt-1" size={24} />
-                  <div>
-                    <h3 className="font-semibold text-gray-900">Convenient Location</h3>
-                    <p className="text-gray-600">Easy access with parking available</p>
-                  </div>
-                </div>
+              ))}
+            </div>
+          </section>
+        </Reveal>
+        <Reveal>
+          <section className="max-w-6xl mx-auto px-6 py-20">
+            <div className="bg-muted/40 rounded-3xl p-10 md:p-14 border border-border">
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6 text-center">
+                Commercial Photography Studio in Banaswadi, Bangalore
+              </h2>
+              <div className="max-w-4xl mx-auto space-y-6 text-muted-foreground leading-relaxed text-sm md:text-base">
+                <p>
+                  SoulFrame Studio is a fully equipped commercial photography and cyclorama rental
+                  space located in Banaswadi, North Bangalore. We specialize in
+                  <a href="/services-pricing" className="text-primary hover:underline">
+                    {' '}
+                    product photography in Bangalore
+                  </a>
+                  ,
+                  <a href="/services-pricing" className="text-primary hover:underline">
+                    {' '}
+                    food photography
+                  </a>
+                  , catalog photography and ecommerce product photography
+                  <a href="/studio-rental" className="text-primary hover:underline">
+                    {' '}
+                    professional studio rentals{' '}
+                  </a>
+                  for agencies, D2C brands and marketing teams.
+                </p>
+                <p>
+                  Our infinity wall setup, professional lighting systems and flexible studio layout
+                  make us a preferred choice for
+                  <a href="/studio-rental" className="text-primary hover:underline">
+                    {' '}
+                    cyclorama studio rental in Bangalore{' '}
+                  </a>
+                  as well as commercial product and brand photography shoots across Banaswadi, HRBR
+                  Layout, Kalyan Nagar and Indiranagar and surrounding North Bangalore business
+                  hubs.
+                </p>
               </div>
             </div>
-            <div className="relative h-96 lg:h-full rounded-lg overflow-hidden shadow-xl">
+          </section>
+        </Reveal>
+        <Reveal>
+          <section className="max-w-8xl mx-auto px-6 py-16 md:py-24">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+                What Our Clients Say
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                Real experiences from our happy clients
+              </p>
+            </div>
+            <TestimonialsCarousel />
+          </section>
+        </Reveal>
+        <Reveal>
+          <section className="max-w-8xl mx-auto px-6 py-16 md:py-24">
+            <div className="relative rounded-3xl overflow-hidden">
               <AppImage
-                src="https://img.rocket.new/generatedImages/rocket_gen_img_1b3d500ee-1767340891851.png"
-                alt="Professional photography team working together in creative studio environment"
-                fill
-                className="object-cover" />
-              
-              
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Services & Pricing Section */}
-      <section id="services" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Services & Pricing</h2>
-            <p className="text-xl text-gray-600">Choose the perfect package for your needs</p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {services.map((service) => (
-              <div key={service.id} className="bg-white border-2 border-gray-200 rounded-lg p-8 hover:border-gray-900 hover:shadow-xl transition-all duration-300">
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">{service.name}</h3>
-                <p className="text-3xl font-bold text-gray-900 mb-4">{service.price}</p>
-                <p className="text-gray-600 mb-6">{service.description}</p>
-                <ul className="space-y-3">
-                  {service.features.map((feature, index) => (
-                    <li key={index} className="flex items-center text-gray-700">
-                      <Icon name="CheckIcon" className="text-green-600 mr-2" size={20} />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-                <button className="w-full mt-6 px-6 py-3 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors font-semibold">
-                  Book Now
-                </button>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* About Us Section */}
-      <section id="about" className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="relative h-96 lg:h-full rounded-lg overflow-hidden shadow-xl">
-              <AppImage
-                src="https://img.rocket.new/generatedImages/rocket_gen_img_1b3d500ee-1767340891851.png"
-                alt="Professional photography team working together in creative studio environment"
-                fill
-                className="object-cover" />
-              
-            </div>
-            <div>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">About Us</h2>
-              <p className="text-lg text-gray-600 mb-6">
-                SoulFrame Studio is a creative hub where passion meets professionalism. Founded in 2015, we've been helping artists, brands, and individuals bring their visual stories to life.
-              </p>
-              <p className="text-lg text-gray-600 mb-6">
-                Our team of experienced photographers and videographers are dedicated to delivering exceptional quality and service. We believe in the power of visual storytelling and work closely with each client to understand their unique vision.
-              </p>
-              <div className="grid grid-cols-3 gap-6 mt-8">
-                <div className="text-center">
-                  <div className="text-4xl font-bold text-gray-900 mb-2">500+</div>
-                  <div className="text-gray-600">Projects</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-4xl font-bold text-gray-900 mb-2">200+</div>
-                  <div className="text-gray-600">Clients</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-4xl font-bold text-gray-900 mb-2">9+</div>
-                  <div className="text-gray-600">Years</div>
+                src="https://images.unsplash.com/photo-1603425013520-e0b30e6e37dc"
+                alt="Professional photography studio with lighting equipment and backdrop"
+                className="w-full h-[400px] object-cover"
+              />
+              <div className="absolute inset-0 bg-foreground/70 backdrop-blur-sm" />
+              <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
+                <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+                  Ready to build your Brand?
+                </h2>
+                <p className="text-white/90 text-lg mb-8 max-w-2xl">
+                  Book your photography session today and create the strongest presence for your
+                  brand with Soul Frame Studio.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <a
+                    href="tel:+919731741573"
+                    className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all hover:-translate-y-1"
+                  >
+                    <span>Call Now</span>
+                    <Icon name="PhoneIcon" size={20} />
+                  </a>
+                  <a
+                    href="https://wa.me/919731741573"
+                    className="inline-flex items-center justify-center gap-2 bg-white text-foreground px-8 py-4 rounded-full font-semibold hover:bg-white/90 transition-all"
+                  >
+                    <span>WhatsApp Us</span>
+                    <Icon name="ChatBubbleLeftRightIcon" size={20} />
+                  </a>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
+          </section>
+        </Reveal>
+        <Reveal>
+          <section className="max-w-5xl mx-auto px-6 py-16">
+            <h3 className="text-2xl font-semibold text-foreground mb-8 text-center">
+              Frequently Asked Questions
+            </h3>
 
-      {/* Testimonials Section */}
-      <section id="testimonials" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Client Testimonials</h2>
-            <p className="text-xl text-gray-600">What our clients say about us</p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial) => (
-              <div key={testimonial.id} className="bg-gray-50 rounded-lg p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
-                <div className="flex items-center mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Icon key={i} name="StarIcon" variant="solid" className="text-yellow-400" size={20} />
-                  ))}
-                </div>
-                <p className="text-gray-700 mb-6 italic">"{testimonial.content}"</p>
-                <div className="flex items-center">
-                  <div className="w-12 h-12 rounded-full overflow-hidden mr-4">
-                    <AppImage
-                      src={testimonial.image}
-                      alt={testimonial.alt}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <div>
-                    <div className="font-semibold text-gray-900">{testimonial.name}</div>
-                    <div className="text-gray-600 text-sm">{testimonial.role}</div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+            <div className="grid md:grid-cols-2 gap-6">
+              <FAQ
+                question="Where is your photography studio located in Bangalore?"
+                answer={
+                  <>
+                    Our studio is located in <strong>Banaswadi, North Bangalore</strong>, easily
+                    accessible from HRBR Layout, Kalyan Nagar and Indiranagar.
+                  </>
+                }
+              />
 
-      {/* Contact & Location Section */}
-      <section id="contact" className="py-20 bg-gray-900 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <div>
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">Get In Touch</h2>
-              <p className="text-xl text-gray-300 mb-8">
-                Ready to start your project? Contact us today and let's create something amazing together.
-              </p>
-              <div className="space-y-6">
-                <div className="flex items-start">
-                  <Icon name="MapPinIcon" className="text-white mr-4 mt-1" size={24} />
-                  <div>
-                    <h3 className="font-semibold text-lg mb-1">Location</h3>
-                    <p className="text-gray-300">123 Creative Avenue, Studio District<br />New York, NY 10001</p>
-                  </div>
-                </div>
-                <div className="flex items-start">
-                  <Icon name="PhoneIcon" className="text-white mr-4 mt-1" size={24} />
-                  <div>
-                    <h3 className="font-semibold text-lg mb-1">Phone</h3>
-                    <p className="text-gray-300">+1 (555) 123-4567</p>
-                  </div>
-                </div>
-                <div className="flex items-start">
-                  <Icon name="EnvelopeIcon" className="text-white mr-4 mt-1" size={24} />
-                  <div>
-                    <h3 className="font-semibold text-lg mb-1">Email</h3>
-                    <p className="text-gray-300">hello@soulframestudio.com</p>
-                  </div>
-                </div>
-                <div className="flex items-start">
-                  <Icon name="ClockIcon" className="text-white mr-4 mt-1" size={24} />
-                  <div>
-                    <h3 className="font-semibold text-lg mb-1">Hours</h3>
-                    <p className="text-gray-300">Monday - Friday: 9AM - 6PM<br />Saturday: 10AM - 4PM<br />Sunday: Closed</p>
-                  </div>
-                </div>
-              </div>
+              <FAQ
+                question="Do you offer cyclorama infinity wall rental?"
+                answer={
+                  <>
+                    Yes. We offer a professional <strong>256 sq ft cyclorama infinity wall</strong>{' '}
+                    with a seamless white backdrop, ideal for product shoots, fashion photography
+                    and commercial productions. The rental includes access to studio lighting, props
+                    and basic equipment.
+                  </>
+                }
+              />
+
+              <FAQ
+                question="How much does studio rental cost in Bangalore?"
+                answer={
+                  <>
+                    Studio rental starts from <strong>₹2,000 + GST</strong> for a single set and
+                    <strong> ₹2,500 + GST per hour</strong> for full studio access with lighting and
+                    props depending on the selected package.
+                  </>
+                }
+              />
+
+              <FAQ
+                question="Do you provide photography services for brands and restaurants?"
+                answer={
+                  <>
+                    Yes. We work with brands, food chains, ecommerce businesses and marketing
+                    agencies for commercial{' '}
+                    <strong>product photography and food photography</strong>.
+                  </>
+                }
+              />
             </div>
-            <div>
-              <form className="space-y-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium mb-2">Name</label>
-                  <input
-                    type="text"
-                    id="name"
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-white transition-colors text-white"
-                    placeholder="Your name" />
-                  
-                </div>
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium mb-2">Email</label>
-                  <input
-                    type="email"
-                    id="email"
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-white transition-colors text-white"
-                    placeholder="your@email.com" />
-                  
-                </div>
-                <div>
-                  <label htmlFor="service" className="block text-sm font-medium mb-2">Service Interested In</label>
-                  <select
-                    id="service"
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-white transition-colors text-white">
-                    
-                    <option value="">Select a service</option>
-                    <option value="studio">Studio Rental</option>
-                    <option value="photography">Photography Session</option>
-                    <option value="video">Video Production</option>
-                    <option value="event">Event Coverage</option>
-                  </select>
-                </div>
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium mb-2">Message</label>
-                  <textarea
-                    id="message"
-                    rows={4}
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-white transition-colors text-white"
-                    placeholder="Tell us about your project...">
-                  </textarea>
-                </div>
-                <button
-                  type="submit"
-                  className="w-full px-8 py-4 bg-white text-gray-900 rounded-lg hover:bg-gray-100 transition-colors text-lg font-semibold">
-                  
-                  Send Message
-                </button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="bg-black text-white py-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="text-2xl font-bold mb-4 md:mb-0">SoulFrame Studio</div>
-            <div className="flex space-x-6">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                <Icon name="CameraIcon" size={24} />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                <Icon name="VideoCameraIcon" size={24} />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                <Icon name="PhotoIcon" size={24} />
-              </a>
-            </div>
-          </div>
-          <div className="mt-8 text-center text-gray-400 text-sm">
-            © 2026 SoulFrame Studio. All rights reserved.
-          </div>
-        </div>
-      </footer>
-    </div>);
-
+          </section>
+        </Reveal>
+      </main>
+      <Footer />
+      <BookingWidget />
+      <Script
+        id="localbusiness-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(createLocalBusinessSchema()),
+        }}
+      />
+    </>
+  );
 }
